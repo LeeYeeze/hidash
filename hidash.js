@@ -1,6 +1,48 @@
 /**
  * Created by yizeli on 2/24/15.
  */
+function PriorityQueue() {
+
+
+}
+
+function TreeMap() {
+
+}
+
+function LinkedList() {
+
+
+}
+
+function SegmentTree() {
+
+
+}
+
+function BinaryIndexedTree() {
+
+
+}
+
+function DeQueue() {
+
+}
+
+function Queue() {
+
+}
+
+
+function minHeap() {
+
+}
+
+function maxHeap() {
+    
+}
+
+
 function binarySearch (array, target) {
     var l = 0;
     var r = array.length - 1;
@@ -522,7 +564,7 @@ function postorderTraversal() {
 
 }
 
-function largestSubMatrix() {
+function largestSubMatrix(matrix) {
 
 
 
