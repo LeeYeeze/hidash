@@ -458,11 +458,13 @@ function findUnsortedSequence(arr) {
     if (i == arr.length)
         leftEnd = arr.length -1;
     for (i = arr.length - 2; i >=0; i--) {
-        if (arr[i] > arr[i+1])
+        if (arr[i] > arr[i+1]) {
             rightStart = i+1;
+            break;
+        }
     }
     if (i == -1)
-        return 0;
+        rightStart =0;
     var minIndex = leftEnd + 1;
     if (minIndex >= arr.length)
         return "Already Sorted";
@@ -483,7 +485,7 @@ function findUnsortedSequence(arr) {
     var unsortedEnd = arr.length - 1;
     for (i = rightStart; i<arr.length; i++) {
         if (arr[i] >= arr[maxIndex]) {
-            unsortedEnd = i;
+            unsortedEnd = i-1;
             break;
         }
     }
@@ -510,6 +512,22 @@ function inorderTraversal (root) {
     return res;
 }
 
+function preorderTraversal(root) {
+
+
+}
+
+function postorderTraversal() {
+
+
+}
+
+function largestSubMatrix() {
+
+
+
+}
+
 
 function sortedListHelper(list, l, r) {
     if (l>r)
@@ -517,7 +535,7 @@ function sortedListHelper(list, l, r) {
     var m = Math.floor((l+r+1)/2);
     var left = helper(list, l, m -1);
     var root = {"val":list[0].val};
-    console.log("root is "+ root.val)
+    console.log("root is "+ root.val);
     root.left = left;
     list[0] = list[0].next;
     root.right = sortedListHelper(list, m+1, r);
@@ -538,3 +556,5 @@ function sortedListToBST(head) {
     list.push(head);
     return sortedListHelper(list, 0, count-1);
 }
+
+console.log(findUnsortedSequence([1,2,3,7,6,5,4,8,9,10]));
