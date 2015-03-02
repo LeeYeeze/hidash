@@ -1,7 +1,4 @@
 /**
- * Created by yizeli on 3/2/15.
- */
-/**
  * Created by yizeli on 2/24/15.
  */
 function binarySearch (array, target) {
@@ -71,6 +68,9 @@ function getLIS (arr) {
 
 function kthOfProductOfPrimes (primeArray, k) {
     var val = 0;
+    primeArray.sort(function (a,b) {
+       return a - b;
+    });
     for (var i =0; i <= k; i++) {
 
     }
@@ -448,8 +448,93 @@ console.log(getLIS([5,4,3,7,8,9]));
 function findUnsortedSequence(arr) {
     var leftEnd;
     var rightStart;
+    var i = 1;
+    for (; i < arr.length; i++) {
+        if (arr[i] < arr[i-1]) {
+            leftEnd = i -1;
+            break;
+        }
+    }
+    if (i == arr.length)
+        leftEnd = arr.length -1;
+    for (i = arr.length - 2; i >=0; i--) {
+        if (arr[i] > arr[i+1])
+            rightStart = i+1;
+    }
+    if (i == -1)
+        return 0;
+    var minIndex = leftEnd + 1;
+    if (minIndex >= arr.length)
+        return "Already Sorted";
+    var maxIndex = rightStart - 1;
 
-    var minIndex = leftEnd+1;
-    var maxIndex = rightStart-1;
+    for (var j = leftEnd; j <= rightStart; j++) {
+        if (arr[j] < arr[minIndex]) minIndex = j;
+        if (arr[j] > arr[maxIndex]) maxIndex = j;
+    }
+    var unsortedStart = 0;
+    for (i = leftEnd; i >= 0; i--) {
+        if (arr[i] <= arr[minIndex]) {
+            unsortedStart = i+1;
+            break;
+        }
+    }
 
+    var unsortedEnd = arr.length - 1;
+    for (i = rightStart; i<arr.length; i++) {
+        if (arr[i] >= arr[maxIndex]) {
+            unsortedEnd = i;
+            break;
+        }
+    }
+
+    return {start: unsortedStart, end: unsortedEnd};
+
+}
+
+function inorderTraversal (root) {
+    var res = [];
+    if (root === null || root === undefined)
+        return res;
+    var stack = [];
+    while ((root!==null && root!==undefined) || stack.length>0) {
+        if (root!== null && root!==undefined) {
+            stack.push(root);
+            root = root.left;
+        } else {
+            root = stack.pop();
+            res.push(root.val);
+            root = root.right;
+        }
+    }
+    return res;
+}
+
+
+function sortedListHelper(list, l, r) {
+    if (l>r)
+        return null;
+    var m = Math.floor((l+r+1)/2);
+    var left = helper(list, l, m -1);
+    var root = {"val":list[0].val};
+    console.log("root is "+ root.val)
+    root.left = left;
+    list[0] = list[0].next;
+    root.right = sortedListHelper(list, m+1, r);
+    return root;
+}
+
+function sortedListToBST(head) {
+    if (head===null || head ===undefined)
+        return null;
+    var cur = head;
+    var count = 0;
+    while ((cur !== null) && (cur !== undefined)) {
+        cur = cur.next;
+        count++;
+    }
+    console.log("count is "+ count)
+    var list = [];
+    list.push(head);
+    return sortedListHelper(list, 0, count-1);
 }
