@@ -25,6 +25,26 @@ function SegmentTree() {
 
 }
 
+function SplayTree() {
+
+}
+
+function Bag() {
+
+}
+
+function SortedMap() {
+
+}
+
+function BTree() {
+
+}
+
+function BPlusTree() {
+
+}
+
 function BinaryIndexedTree() {
     this.tree = [];
 
@@ -213,7 +233,36 @@ function RedBlackTree() {
 }
 
 function AVLTree() {
-    
+
+}
+
+function MinStack() {
+
+}
+
+function MaxStack() {
+
+}
+
+function MessageQueue() {
+
+
+}
+
+function LRUCache() {
+
+}
+
+function MRUCache() {
+
+}
+
+function MemCache() {
+
+}
+
+function spliceSlice(str, index, count, add) {
+    return str.slice(0, index) + (add || "") + str.slice(index + count);
 }
 
 function binarySearch (array, target) {
@@ -869,6 +918,30 @@ function maxSubarray() {
 }
 
 function maxProductSubarray() {
+
+}
+
+function ladderLength(start, end, dict) {
+    if (start == null || end == null || start.length === 0 || end.length === 0 || start.length !== end.length)
+        return 0;
+    var queue = [];
+    var visited = {};
+    var level = 1;
+    queue.push(start);
+    visited[start] = true;
+    var replaceQueue = [];
+    while (queue.length > 0) {
+        var cur = queue.shift();
+        for (var i = 0; i<cur.length; i++) {
+            var charCur = ''
+        }
+
+    }
+    if (queue.length === 0) {
+        queue = replaceQueue;
+        replaceQueue = [];
+    }
+
 
 }
 
