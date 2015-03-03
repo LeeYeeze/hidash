@@ -634,3 +634,59 @@ function sortedListToBST(head) {
 }
 
 console.log(findUnsortedSequence([1,2,3,7,6,5,4,8,9,10]));
+
+function merge(arr, left, right) {
+    var i = 0, j = 0, count = 0;
+    while (i < left.length || j < right.length) {
+        if (i == left.length) {
+            arr[i+j] = right[j];
+            j++;
+        } else if (j == right.length) {
+            arr[i+j] = left[i];
+            i++;
+        } else if (left[i] <= right[j]) {
+            arr[i+j] = left[i];
+            i++;
+        } else {
+            arr[i+j] = right[j];
+            count += left.length-i;
+            j++;
+        }
+    }
+    return count;
+}
+
+function invCount(arr) {
+    if (arr.length < 2)
+        return 0;
+
+    var m = Math.floor((arr.length + 1) / 2);
+    var left = arr.slice(0,m);
+    var right = arr.slice(m, arr.length);
+
+    return invCount(left) + invCount(right) + merge(arr, left, right);
+}
+
+//console.log(invCount([1,2,3,5,4]));
+
+function miniInvCount(str1, str2) {
+    var arr = [];
+    var map1 = {};
+    var map2 = {};
+    for (var i = 0; i < str1.length; i++) {
+        var ch = str1.charAt(i);
+        if (map1.hasOwnProperty(ch)) {
+            map1[ch].push(i+1);
+        } else {
+            map1[ch] = [i+1];
+        }
+
+    }
+    for (var i = 0; i < str2.length; i++) {
+        var ch = str2.charAt(i);
+        arr.push(map1[ch].shift());
+    }
+    //return arr;
+    return invCount(arr);
+
+}
