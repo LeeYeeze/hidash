@@ -933,17 +933,56 @@ function ladderLength(start, end, dict) {
     while (queue.length > 0) {
         var cur = queue.shift();
         for (var i = 0; i<cur.length; i++) {
-            var charCur = ''
+            for (var j = 97; j< 123 ; j++) {
+                var tempString = spliceSlice(cur, i, 1, String.fromCharCode(j));
+                if (tempString == end)
+                    return level+1;
+                if (dict.hasOwnProperty(tempString) && !visited.hasOwnProperty(tempString)) {
+                    replaceQueue.push(tempString);
+                    visited[tempString]=true;
+                }
+            }
         }
-
+        if (queue.length === 0) {
+            queue = replaceQueue;
+            replaceQueue = [];
+            level++;
+        }
     }
-    if (queue.length === 0) {
-        queue = replaceQueue;
-        replaceQueue = [];
-    }
+}
 
+function kSum() {
 
 }
+
+function closestPair() {
+
+}
+
+function reverseLinkedList(head, m, n) {
+
+}
+
+function majorityElement(arr) {
+
+}
+
+function radixSort() {
+
+}
+
+function KMP() {
+
+}
+
+function mergeSort() {
+
+}
+
+function unionFind() {
+
+}
+
 
 
 var minq = new MinHeap();
@@ -954,9 +993,11 @@ minq.removeMin();
 
 console.log(minq.heap);
 
+console.log(spliceSlice("abc",0,1,"g"));
 
 
 
+console.log(ladderLength("hit", "cog", {"hot":true, "dot":true, "dog":true, "lot":true, "log":true}));
 
 
 
