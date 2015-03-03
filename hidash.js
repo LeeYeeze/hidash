@@ -20,15 +20,30 @@ function LinkedList() {
 }
 
 
-
 function SegmentTree() {
 
 
 }
 
 function BinaryIndexedTree() {
+    this.tree = [];
 
+}
 
+BinaryIndexedTree.prototype.read = function(idx) {
+    var sum = 0;
+    while (idx > 0){
+        sum += this.tree[idx];
+        idx -= (idx & -idx);
+    }
+    return sum;
+}
+
+BinaryIndexedTree.prototype.update = function(idx, val) {
+    while (idx < this.tree.length){
+        this.tree[idx] += val;
+        idx += (idx & -idx);
+    }
 }
 
 function DeQueue() {
@@ -151,12 +166,55 @@ function shuffle(array) {
     return array;
 }
 
-function findKthOfArray() {
 
+function partition(arr, left, right) {
+    var tracker = left;
+    var pivot = arr[right];
+    for (var i = left; i<right; i++) {
+        if (arr[i]<pivot) {
+            var temp = arr[tracker];
+            arr[tracker] = arr[i];
+            arr[i] = temp;
+            tracker++;
+        }
+    }
+    arr[right] = arr[tracker];
+    arr[tracker] = pivot;
+    return tracker;
 
 }
 
+function findKthOfArray(arr, left, right, k) {
+    if (left == right)
+        return arr[left];
+    var pivotIndex = right;
+    while (true) {
+        pivotIndex = partition(arr, left, right);
+        if (k==pivotIndex) {
+            return arr[k];
+        } else if (k < pivotIndex) {
+            right = pivotIndex - 1;
+        } else {
+            left = pivotIndex + 1;
+        }
+    }
+}
 
+function medianOfMedian(arr) {
+
+}
+
+function MultiSet() {
+
+}
+
+function RedBlackTree() {
+
+}
+
+function AVLTree() {
+    
+}
 
 function binarySearch (array, target) {
     var l = 0;
@@ -768,3 +826,64 @@ function miniInvCount(str1, str2) {
     return invCount(arr);
 
 }
+
+function unboundedKnapsack(array) {
+
+}
+
+function boundedKnapsack() {
+
+}
+
+function taskScheduling() {
+
+}
+
+function weightedTaskScheduling() {
+
+}
+
+function twoSum() {
+
+}
+
+function threeSum() {
+
+}
+
+function threeSumClosest() {
+
+
+}
+
+function getLongestConsecutiveSequence(arr) {
+
+}
+
+function distinctSubsequences() {
+
+}
+
+function maxSubarray() {
+
+}
+
+function maxProductSubarray() {
+
+}
+
+
+var minq = new MinHeap();
+
+minq.insert(1);
+minq.insert(2);
+minq.removeMin();
+
+console.log(minq.heap);
+
+
+
+
+
+
+
