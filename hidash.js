@@ -10,10 +10,16 @@ function TreeMap() {
 
 }
 
+function LinkedListNode (val) {
+    this.val = val;
+    this.next = null;
+}
+
 function LinkedList() {
 
-
 }
+
+
 
 function SegmentTree() {
 
@@ -39,8 +45,39 @@ function minHeap() {
 }
 
 function maxHeap() {
-    
+
 }
+
+function rand(lower, higher) {
+    lower = Math.ceil(lower);
+    higher = Math.floor(higher);
+    return lower + Math.floor(Math.random()*(higher-lower+1));
+}
+
+function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex ;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+}
+
+function findKthOfArray() {
+
+
+}
+
 
 
 function binarySearch (array, target) {
@@ -121,10 +158,7 @@ function kthOfProductOfPrimes (primeArray, k) {
 
 }
 
-function LinkedList (val) {
-    this.val = val;
-    this.next = null;
-}
+
 
 //console.log(lengthOfLIS([1,2,3,4,5,1111111111,1111111111111111,11111111111111111,11111111111111111111,6,7,8]));
 
