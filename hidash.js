@@ -74,6 +74,54 @@ function Queue() {
 
 }
 
+function SuffixTreeNode() {
+    this.children = {};
+    this.value = null;
+    this.indexes = [];
+}
+
+SuffixTreeNode.prototype.insertString = function(s, index) {
+    this.indexes.push(index);
+    if (s!==null && s.length>0 ) {
+        this.value = s.charAt(0);
+        var child = null;
+        if (this.children.hasOwnProperty(this.value)) {
+            child = this.children[this.value];
+        } else {
+            child = new SuffixTreeNode();
+            this.children[this.value] = child;
+        }
+
+        var remainder = s.substring(1);
+        child.insertString(remainder, index);
+    }
+}
+
+SuffixTreeNode.prototype.search = function(s) {
+    if (s === null || s.length === 0) {
+        return this.indexes;
+    } else {
+        var first = s.charAt(0);
+        if (this.children.hasOwnProperty(first)) {
+            var remainder = s.substring(1);
+            return this.children[first].search(remainder);
+        }
+    }
+    return null;
+}
+
+function SuffixTree(s) {
+     this.root = new SuffixTreeNode();
+    var root = this.root;
+    for (var i = 0; i < s.length; i++) {
+        var suffix = s.substring(i);
+        root.insertString(suffix, i);
+    }
+}
+
+SuffixTree.prototype.search = function(s) {
+    return this.root.search(s);
+}
 
 function MinHeap() {
     this.heap = [];
