@@ -74,30 +74,29 @@ function Queue() {
 
 }
 
-function SuffixTreeNode() {
+function SuffixTrieNode(value) {
     this.children = {};
-    this.value = null;
+    this.value = value;
     this.indexes = [];
 }
 
-SuffixTreeNode.prototype.insertString = function(s, index) {
+SuffixTrieNode.prototype.insertString = function(s, index) {
     this.indexes.push(index);
     if (s!==null && s.length>0 ) {
-        this.value = s.charAt(0);
+        var value = s.charAt(0);
         var child = null;
-        if (this.children.hasOwnProperty(this.value)) {
-            child = this.children[this.value];
+        if (this.children.hasOwnProperty(value)) {
+            child = this.children[value];
         } else {
-            child = new SuffixTreeNode();
-            this.children[this.value] = child;
+            child = new SuffixTrieNode(value);
+            this.children[value] = child;
         }
-
         var remainder = s.substring(1);
         child.insertString(remainder, index);
     }
-}
+};
 
-SuffixTreeNode.prototype.search = function(s) {
+SuffixTrieNode.prototype.search = function(s) {
     if (s === null || s.length === 0) {
         return this.indexes;
     } else {
@@ -108,10 +107,10 @@ SuffixTreeNode.prototype.search = function(s) {
         }
     }
     return null;
-}
+};
 
-function SuffixTree(s) {
-     this.root = new SuffixTreeNode();
+function SuffixTrie(s) {
+    this.root = new SuffixTrieNode();
     var root = this.root;
     for (var i = 0; i < s.length; i++) {
         var suffix = s.substring(i);
@@ -119,9 +118,9 @@ function SuffixTree(s) {
     }
 }
 
-SuffixTree.prototype.search = function(s) {
+SuffixTrie.prototype.search = function(s) {
     return this.root.search(s);
-}
+};
 
 function MinHeap() {
     this.heap = [];
@@ -141,14 +140,14 @@ MinHeap.prototype.sink = function(position){
         childIndex = position*2;
     }
     this.heap[position] = rearrange;
-}
+};
 
 MinHeap.prototype.removeMin = function() {
     var rootVal = this.heap[1];
     this.heap[1] = this.heap[this.size--];
     this.sink(1);
     return rootVal;
-}
+};
 
 MinHeap.prototype.insert = function(x) {
     this.heap[++this.size] = x;
@@ -961,8 +960,20 @@ function distinctSubsequences() {
 
 }
 
-function maxSubarray() {
-
+function maxSubarray(array) {
+    if (!Array.isArray(array) || array.length === 0)
+        return 0;
+    var global = array[0];
+    var local = array[0];
+    for (var i = 1; i < array.length; i++) {
+        if (local< 0)
+            local = array[i];
+        else {
+            local += array[i];
+        }
+        global = Math.max(local, global);
+    }
+    return global;
 }
 
 function maxProductSubarray() {
@@ -1031,6 +1042,17 @@ function unionFind() {
 
 }
 
+function maxSubMatrix(matrix) {
+
+}
+
+function BitMap() {
+
+}
+
+function TrieTree() {
+
+}
 
 
 var minq = new MinHeap();
@@ -1046,6 +1068,7 @@ console.log(spliceSlice("abc",0,1,"g"));
 
 
 console.log(ladderLength("hit", "cog", {"hot":true, "dot":true, "dog":true, "lot":true, "log":true}));
+console.log(maxSubarray([-1,-2,-3,-4]));
 
 
 
