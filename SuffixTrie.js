@@ -31,7 +31,7 @@ SuffixTrie.prototype.search = function(s) {
 };
 
 SuffixTrie.prototype.searchSuffix = function(s) {
-    
+
 }
 
 SuffixTrie.prototype.longestRepeat = function() {

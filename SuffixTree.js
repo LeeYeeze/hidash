@@ -49,7 +49,7 @@ function SuffixTree(s) {
         while (this.remainder>0) {
             if (this.activePoint.activeLength === 0)
                 this.activePoint.activeEdge = this.position;
-            if (!this.nodes[this.activePoint.activeNode].edges.hasOwnProperty(this.text.charAt(this.activePoint.activeEdge))) {
+            if (!this.activePoint.activeNode.edges.hasOwnProperty(this.text.charAt(this.activePoint.activeEdge))) {
                 var leaf = new SuffixTreeNode(this.position,"#");
                 this.activePoint.activeNode.edges[this.text.charAt(this.activePoint.activeEdge)] = leaf;
                 this.addSuffixLink(this.activePoint.activeNode);
@@ -115,3 +115,4 @@ SuffixTree.prototype.printTree = function() {
 
 }
 
+var su = new SuffixTree("aba");
