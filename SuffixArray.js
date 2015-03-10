@@ -248,4 +248,4 @@ SuffixArray.prototype.index = function(i) {
 
 //console.log(String.fromCharCode(0))
 
-console.log(constructSuffixArray("GACCCACCACC",1000))
+console.log(constructSuffixArray("GACCCACCACC",255))
