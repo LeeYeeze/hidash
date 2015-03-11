@@ -150,4 +150,12 @@ AVLTree.prototype.remove = function(x) {
     this.root = this.nodeRemove(x, this.root);
 };
 
+var tree = new AVLTree(function (a, b){return a -b;});
+
+tree.insert(1);
+tree.insert(2);
+tree.insert(3);
+console.log(tree.root);
+
+
 
