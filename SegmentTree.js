@@ -2,14 +2,39 @@
  * Created by yizeli on 3/7/15.
  */
 
-function SegmentTreeNode() {
+var SegmentTree = (function() {
 
-}
+    function buildTree() {
 
-function SegmentTree() {
+    }
+
+    function SegmentTreeNode() {
+
+    }
+
+    function SegmentTree() {
+        this.nodes = [];
+        this.N = 0;
+    }
+
+    SegmentTree.prototype.getValue = function() {
+
+    };
+
+    SegmentTree.prototype.update = function() {
+
+    };
+
+    return SegmentTree;
 
 
-}
+})();
+
+var dog = new SegmentTree();
+console.log(dog);
+
+
+
 
 
 

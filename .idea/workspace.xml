@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0861322c-43cc-4ed1-bde0-ba26a7b3810e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/RTree.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IntervalTree.js" afterPath="$PROJECT_DIR$/IntervalTree.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/BestTimeToBuyandSellStock.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SegmentTree.js" afterPath="$PROJECT_DIR$/SegmentTree.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WeightedTaskScheduling.js" afterPath="$PROJECT_DIR$/WeightedTaskScheduling.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -29,18 +29,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SuffixTree.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SuffixTree.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="814" max-vertical-offset="1815">
-              <caret line="117" column="28" selection-start-line="117" selection-start-column="28" selection-end-line="117" selection-end-column="28" />
-              <folding>
-                <element signature="n#!!doc;n#SuffixTreeNode#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="SuffixTrie.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SuffixTrie.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -53,8 +41,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RTree.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/RTree.js">
+      <file leaf-file-name="WeightedTaskScheduling.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/WeightedTaskScheduling.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.5313225" vertical-offset="2719" max-vertical-offset="3150">
+              <caret line="168" column="20" selection-start-line="168" selection-start-column="20" selection-end-line="168" selection-end-column="20" />
+              <folding>
+                <element signature="e#0#40#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BestTimeToBuyandSellStock.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BestTimeToBuyandSellStock.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="105">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -63,14 +63,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WeightedTaskScheduling.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/WeightedTaskScheduling.js">
+      <file leaf-file-name="MinStack.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MinStack.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8259861" vertical-offset="874" max-vertical-offset="1575">
-              <caret line="84" column="1" selection-start-line="84" selection-start-column="1" selection-end-line="84" selection-end-column="1" />
-              <folding>
-                <element signature="n#!!doc;n#fillArray#0" expanded="false" />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="105">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -109,23 +107,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="120">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="SegmentTree.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SegmentTree.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
-              <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
+              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
               <folding>
-                <element signature="n#!!doc;n#SegmentTreeNode#0" expanded="false" />
+                <element signature="e#0#39#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -157,12 +145,13 @@
         <option value="$PROJECT_DIR$/FlowNetwork.js" />
         <option value="$PROJECT_DIR$/SuffixArray.js" />
         <option value="$PROJECT_DIR$/RedBlackTree.js" />
-        <option value="$PROJECT_DIR$/SegmentTree.js" />
         <option value="$PROJECT_DIR$/SplayTree.js" />
         <option value="$PROJECT_DIR$/AVLTree.js" />
         <option value="$PROJECT_DIR$/MinHeap.js" />
         <option value="$PROJECT_DIR$/RTree.js" />
         <option value="$PROJECT_DIR$/IntervalTree.js" />
+        <option value="$PROJECT_DIR$/BestTimeToBuyandSellStock.js" />
+        <option value="$PROJECT_DIR$/SegmentTree.js" />
         <option value="$PROJECT_DIR$/WeightedTaskScheduling.js" />
       </list>
     </option>
@@ -171,7 +160,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="24" />
+    <option name="x" value="-1340" />
+    <option name="y" value="270" />
     <option name="width" value="1280" />
     <option name="height" value="754" />
   </component>
@@ -243,6 +233,11 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="restartRequiresConfirmation" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
   <component name="RunManager" selected="Node.js.hidash.js">
     <configuration default="false" name="hidash.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="/usr/local/bin/node" path-to-js-file="WeightedTaskScheduling.js" working-dir="$PROJECT_DIR$">
       <RunnerSettings RunnerId="Basic" />
@@ -309,7 +304,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1280" height="754" extended-state="6" />
+    <frame x="-1340" y="270" width="1280" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -459,14 +454,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MinStack.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="431">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BTree.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
@@ -537,16 +524,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SegmentTree.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
-          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-          <folding>
-            <element signature="n#!!doc;n#SegmentTreeNode#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SplayTree.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="431">
@@ -565,16 +542,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IntervalTree.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc;n#IntervalTreeNode#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SuffixArray.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="960" max-vertical-offset="3825">
@@ -585,12 +552,64 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/BestTimeToBuyandSellStock.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="431">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MinStack.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="431">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IntervalTree.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc;n#IntervalTreeNode#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SegmentTree.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#39#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/input08.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7911833" vertical-offset="1499659" max-vertical-offset="1500090">
+          <caret line="100000" column="12" selection-start-line="100000" selection-start-column="12" selection-end-line="100000" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/input09.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4176334" vertical-offset="0" max-vertical-offset="1500090">
+          <caret line="12" column="4" selection-start-line="8" selection-start-column="3" selection-end-line="12" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/WeightedTaskScheduling.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8259861" vertical-offset="874" max-vertical-offset="1575">
-          <caret line="84" column="1" selection-start-line="84" selection-start-column="1" selection-end-line="84" selection-end-column="1" />
+        <state vertical-scroll-proportion="-0.5313225" vertical-offset="2719" max-vertical-offset="3150">
+          <caret line="168" column="20" selection-start-line="168" selection-start-column="20" selection-end-line="168" selection-end-column="20" />
           <folding>
-            <element signature="n#!!doc;n#fillArray#0" expanded="false" />
+            <element signature="e#0#40#0" expanded="false" />
           </folding>
         </state>
       </provider>
