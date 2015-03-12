@@ -44,7 +44,7 @@ SuffixTrie.prototype.insert = function(ch) {
     var current = this.longest;
     var previous = null;
     //var ch = s.charAt(i);
-    while (current !== null &&  !current.children.hasOwnProperty(ch)) {
+    while (current !== null && !current.children.hasOwnProperty(ch)) {
         var node = new SuffixTrieNode();
         current.addLink(ch, node);
         if (previous !== null) {

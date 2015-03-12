@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0861322c-43cc-4ed1-bde0-ba26a7b3810e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/BestTimeToBuyandSellStock.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SegmentTree.js" afterPath="$PROJECT_DIR$/SegmentTree.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WeightedTaskScheduling.js" afterPath="$PROJECT_DIR$/WeightedTaskScheduling.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SuffixTrie.js" afterPath="$PROJECT_DIR$/SuffixTrie.js" />
     </list>
     <ignored path="hidash.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,8 +30,8 @@
       <file leaf-file-name="SuffixTrie.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SuffixTrie.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="555" max-vertical-offset="1125">
-              <caret line="65" column="28" selection-start-line="65" selection-start-column="28" selection-end-line="65" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="1125">
+              <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
               <folding>
                 <element signature="n#!!doc;n#SuffixTrieNode#0" expanded="false" />
               </folding>
@@ -41,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WeightedTaskScheduling.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WeightedTaskScheduling.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WeightedTaskScheduling.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.5313225" vertical-offset="2719" max-vertical-offset="3150">
-              <caret line="168" column="20" selection-start-line="168" selection-start-column="20" selection-end-line="168" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2719" max-vertical-offset="3150">
+              <caret line="192" column="19" selection-start-line="192" selection-start-column="19" selection-end-line="192" selection-end-column="19" />
               <folding>
                 <element signature="e#0#40#0" expanded="false" />
               </folding>
@@ -85,6 +83,18 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="AVLTree.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AVLTree.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1095" max-vertical-offset="2475">
+              <caret line="115" column="2" selection-start-line="115" selection-start-column="2" selection-end-line="115" selection-end-column="2" />
+              <folding>
+                <element signature="n#!!doc;n#AVLTreeNode#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="RedBlackTree.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RedBlackTree.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -107,11 +117,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SegmentTree.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SegmentTree.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SegmentTree.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
-              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.40835267" vertical-offset="1054" max-vertical-offset="1635">
+              <caret line="84" column="6" selection-start-line="84" selection-start-column="6" selection-end-line="84" selection-end-column="6" />
               <folding>
                 <element signature="e#0#39#0" expanded="false" />
               </folding>
@@ -138,7 +148,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/hidash.js" />
-        <option value="$PROJECT_DIR$/SuffixTrie.js" />
         <option value="$PROJECT_DIR$/MinStack.js" />
         <option value="$PROJECT_DIR$/SuffixTree.js" />
         <option value="$PROJECT_DIR$/BTree.js" />
@@ -151,8 +160,9 @@
         <option value="$PROJECT_DIR$/RTree.js" />
         <option value="$PROJECT_DIR$/IntervalTree.js" />
         <option value="$PROJECT_DIR$/BestTimeToBuyandSellStock.js" />
-        <option value="$PROJECT_DIR$/SegmentTree.js" />
         <option value="$PROJECT_DIR$/WeightedTaskScheduling.js" />
+        <option value="$PROJECT_DIR$/SuffixTrie.js" />
+        <option value="$PROJECT_DIR$/SegmentTree.js" />
       </list>
     </option>
   </component>
@@ -160,8 +170,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1340" />
-    <option name="y" value="270" />
+    <option name="x" value="-5" />
+    <option name="y" value="67" />
     <option name="width" value="1280" />
     <option name="height" value="754" />
   </component>
@@ -213,7 +223,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/WeightedTaskScheduling.js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/SegmentTree.js" />
     <property name="recentsLimit" value="5" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="225" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
@@ -239,7 +249,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Node.js.hidash.js">
-    <configuration default="false" name="hidash.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="/usr/local/bin/node" path-to-js-file="WeightedTaskScheduling.js" working-dir="$PROJECT_DIR$">
+    <configuration default="false" name="hidash.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="/usr/local/bin/node" path-to-js-file="SegmentTree.js" working-dir="$PROJECT_DIR$">
       <RunnerSettings RunnerId="Basic" />
       <RunnerSettings RunnerId="debuggableProgram" />
       <ConfigurationWrapper RunnerId="Basic" />
@@ -304,7 +314,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1340" y="270" width="1280" height="754" extended-state="6" />
+    <frame x="-5" y="67" width="1280" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -462,16 +472,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AVLTree.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2475">
-          <caret line="115" column="2" selection-start-line="115" selection-start-column="2" selection-end-line="115" selection-end-column="2" />
-          <folding>
-            <element signature="n#!!doc;n#AVLTreeNode#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hidash.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.4444447" vertical-offset="4125" max-vertical-offset="18000">
@@ -532,16 +532,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SuffixTrie.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="555" max-vertical-offset="1125">
-          <caret line="65" column="28" selection-start-line="65" selection-start-column="28" selection-end-line="65" selection-end-column="28" />
-          <folding>
-            <element signature="n#!!doc;n#SuffixTrieNode#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SuffixArray.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="960" max-vertical-offset="3825">
@@ -578,16 +568,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SegmentTree.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#39#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/input08.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7911833" vertical-offset="1499659" max-vertical-offset="1500090">
@@ -606,10 +586,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/WeightedTaskScheduling.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.5313225" vertical-offset="2719" max-vertical-offset="3150">
-          <caret line="168" column="20" selection-start-line="168" selection-start-column="20" selection-end-line="168" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2719" max-vertical-offset="3150">
+          <caret line="192" column="19" selection-start-line="192" selection-start-column="19" selection-end-line="192" selection-end-column="19" />
           <folding>
             <element signature="e#0#40#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AVLTree.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1095" max-vertical-offset="2475">
+          <caret line="115" column="2" selection-start-line="115" selection-start-column="2" selection-end-line="115" selection-end-column="2" />
+          <folding>
+            <element signature="n#!!doc;n#AVLTreeNode#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SuffixTrie.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="1125">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc;n#SuffixTrieNode#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SegmentTree.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40835267" vertical-offset="1054" max-vertical-offset="1635">
+          <caret line="84" column="6" selection-start-line="84" selection-start-column="6" selection-end-line="84" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#39#0" expanded="false" />
           </folding>
         </state>
       </provider>
