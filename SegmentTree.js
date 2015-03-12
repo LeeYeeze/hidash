@@ -76,11 +76,25 @@ var SegmentTree = (function() {
 
     };
 
-    SegmentTree.prototype.updateValueUtil = function() {
-
+    SegmentTree.prototype.updateValueUtil = function(left, right, index, diff, nodeIndex) {
+        if (index < left || index >= right)
+            return;
+        this.nodes[nodeIndex].record += diff;
+        if (left+1<right) {
+            var mid = Math.floor((left+right)/2);
+            this.updateValueUtil(left, mid, index, diff, 2*nodeIndex);
+            this.updateValueUtil(mid, right, index, diff, 2*nodeIndex+1);
+        }
     };
 
-    SegmentTree.prototype.update = function() {
+    SegmentTree.prototype.update = function(index, newValue) {
+        if (index < 0 || index > this.N-1) {
+            console.log("Invalid Input");
+            return;
+        }
+        var diff = newValue - this.array[index];
+        this.array[index] = newValue;
+        this.updateValueUtil(0, this.N, index, diff, 1)
 
     };
 
@@ -93,6 +107,9 @@ var dog = new SegmentTree([1,3,5,7,9]);
 
 console.log(dog);
 console.log(dog.getSum(3,4));
+dog.update(0,5);
+console.log(dog);
+console.log(dog.getSum(1,4))
 
 
 

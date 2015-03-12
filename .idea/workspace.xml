@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0861322c-43cc-4ed1-bde0-ba26a7b3810e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SegmentTree.js" afterPath="$PROJECT_DIR$/SegmentTree.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SuffixTrie.js" afterPath="$PROJECT_DIR$/SuffixTrie.js" />
     </list>
     <ignored path="hidash.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -120,8 +119,8 @@
       <file leaf-file-name="SegmentTree.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SegmentTree.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.40835267" vertical-offset="1054" max-vertical-offset="1635">
-              <caret line="84" column="6" selection-start-line="84" selection-start-column="6" selection-end-line="84" selection-end-column="6" />
+            <state vertical-scroll-proportion="1.4269141" vertical-offset="660" max-vertical-offset="1890">
+              <caret line="87" column="6" selection-start-line="87" selection-start-column="6" selection-end-line="87" selection-end-column="6" />
               <folding>
                 <element signature="e#0#39#0" expanded="false" />
               </folding>
@@ -616,8 +615,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SegmentTree.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40835267" vertical-offset="1054" max-vertical-offset="1635">
-          <caret line="84" column="6" selection-start-line="84" selection-start-column="6" selection-end-line="84" selection-end-column="6" />
+        <state vertical-scroll-proportion="1.4269141" vertical-offset="660" max-vertical-offset="1890">
+          <caret line="87" column="6" selection-start-line="87" selection-start-column="6" selection-end-line="87" selection-end-column="6" />
           <folding>
             <element signature="e#0#39#0" expanded="false" />
           </folding>
