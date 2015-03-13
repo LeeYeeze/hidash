@@ -10,6 +10,7 @@
         this.rightChild = null;
         this.cover = false;
         this.record = reocrd;
+        this.coveredCount = 0;
     }
 
     function buildTree(l, r, num, segmentTree, arr) {
@@ -38,12 +39,15 @@
     };
 
     SegmentTree.prototype.insert = function(l, r, num) {
-        if (this.nodes[num].left == l && this.nodes[num] == r) {
+        if (l+1>r)
+            return;
+        if (this.nodes[num].left == l && this.nodes[num].right == r) {
             this.nodes[num].cover = true;
+            this.nodes[num].coveredCount++;
             return;
         }
         var mid = Math.floor((this.nodes[num].left+this.nodes[num].right)/2);
-        if (r < mid) {
+        if (r <= mid) {
             this.insert(l, r, 2*num);
         } else if (l >= mid) {
             this.insert(l,r, 2*num+1);
@@ -53,7 +57,31 @@
         }
     };
 
-    SegmentTree.prototype.remove = function () {
+    SegmentTree.prototype.countCoveredLength = function(root) {
+        if (root.cover == true) {
+            return root.right - root.left;
+        } else if (root.right == root.left+1) {
+            return 0;
+        }
+        return this.countCoveredLength(root.leftChild) + this.countCoveredLength(root.rightChild);
+    };
+
+    SegmentTree.prototype.numberOfLinesWithPoint = function(point, root) {
+        if (root === null || point<root.left || point >= root.right) {
+            return 0;
+        } else {
+            var next;
+            if (point >= Math.floor((root.left+root.right)/2)) {
+                next = root.rightChild;
+            } else {
+                next = root.leftChild;
+            }
+            return root.coveredCount + this.numberOfLinesWithPoint(point, next);
+        }
+
+    };
+
+    SegmentTree.prototype.remove = function() {
 
     };
 
@@ -106,6 +134,23 @@
 
 })(this);
 
+var SegmentTree = module.exports;
+
+var dog = new SegmentTree([1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]);
+//dog.insert(0,1,1);
+//dog.insert(2,4,1);
+//dog.insert(3,5,1);
+//dog.insert(0,4,1);
+dog.insert(0,2,1);
+dog.insert(0,2,1);
+dog.insert(0,2,1);
+dog.insert(2,3,1);
+
+console.log(dog);
+console.log(dog.countCoveredLength(dog.nodes[1]));
+console.log(dog.numberOfLinesWithPoint(0, dog.nodes[1]));
+console.log(dog.numberOfLinesWithPoint(2,dog.nodes[1]));
+console.log(dog.numberOfLinesWithPoint(1, dog.nodes[1]));
 
 
 
