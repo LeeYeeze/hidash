@@ -1,8 +1,8 @@
 /**
  * Created by yizeli on 3/7/15.
  */
-
-var SegmentTree = (function() {
+'use strict';
+;(function(global) {
     function SegmentTreeNode(left, right, reocrd) {
         this.left = left;
         this.right = right;
@@ -97,19 +97,16 @@ var SegmentTree = (function() {
         this.updateValueUtil(0, this.N, index, diff, 1)
 
     };
+    //global.SegmentTree = SegmentTree;
+    if ( typeof module != 'undefined' && module.exports ) {
+        module.exports = SegmentTree;
+    }
+    //return SegmentTree;
 
-    return SegmentTree;
+
+})(this);
 
 
-})();
-
-var dog = new SegmentTree([1,3,5,7,9]);
-
-console.log(dog);
-console.log(dog.getSum(3,4));
-dog.update(0,5);
-console.log(dog);
-console.log(dog.getSum(1,4))
 
 
 

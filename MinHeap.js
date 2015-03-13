@@ -21,6 +21,17 @@ MinHeap.prototype.sink = function(position){
     this.heap[position] = rearrange;
 };
 
+MinHeap.prototype.swim = function(position) {
+    var parentIndex = Math.floor(position/2);
+    var insertVal = this.heap[position];
+    while (parentIndex>0 && insertVal<this.heap[parentIndex]) {
+        this.heap[position] = this.heap[parentIndex];
+        position = parentIndex;
+        parentIndex = Math.floor(position/2);
+    }
+    this.heap[position] = insertVal;
+}
+
 MinHeap.prototype.removeMin = function() {
     var rootVal = this.heap[1];
     this.heap[1] = this.heap[this.size--];
@@ -33,13 +44,4 @@ MinHeap.prototype.insert = function(x) {
     this.swim(this.size);
 }
 
-MinHeap.prototype.swim = function(position) {
-    var parentIndex = Math.floor(position/2);
-    var insertVal = this.heap[position];
-    while (parentIndex>0 && insertVal<this.heap[parentIndex]) {
-        this.heap[position] = this.heap[parentIndex];
-        position = parentIndex;
-        parentIndex = Math.floor(position/2);
-    }
-    this.heap[position] = insertVal;
-}
+
