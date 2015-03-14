@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0861322c-43cc-4ed1-bde0-ba26a7b3810e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SegmentTree.js" afterPath="$PROJECT_DIR$/SegmentTree.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NonNegativeStringIntegerMultiply.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BigNumber.js" afterPath="$PROJECT_DIR$/BigNumber.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="hidash.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,16 +64,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MinStack.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MinStack.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="105">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="IntervalTree.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/IntervalTree.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -118,10 +110,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SegmentTree.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SegmentTree.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SegmentTree.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="4.4547563" vertical-offset="0" max-vertical-offset="2520">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2089" max-vertical-offset="2520">
               <caret line="130" column="5" selection-start-line="130" selection-start-column="5" selection-end-line="130" selection-end-column="5" />
               <folding>
                 <element signature="e#0#39#0" expanded="false" />
@@ -133,10 +125,22 @@
       <file leaf-file-name="BigNumber.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BigNumber.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
-              <caret line="22" column="2" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="439" max-vertical-offset="1200">
+              <caret line="41" column="37" selection-start-line="41" selection-start-column="37" selection-end-line="41" selection-end-column="37" />
               <folding>
-                <element signature="n#!!doc;n#BigNumber#0" expanded="false" />
+                <element signature="n#!!doc;n#StringBuilder#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NonNegativeStringIntegerMultiply.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/NonNegativeStringIntegerMultiply.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7911833" vertical-offset="4219" max-vertical-offset="4650">
+              <caret line="306" column="33" selection-start-line="306" selection-start-column="33" selection-end-line="306" selection-end-column="33" />
+              <folding>
+                <element signature="n#!!doc;n#stringIntegerMultiply#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -164,9 +168,10 @@
         <option value="$PROJECT_DIR$/BestTimeToBuyandSellStock.js" />
         <option value="$PROJECT_DIR$/WeightedTaskScheduling.js" />
         <option value="$PROJECT_DIR$/SuffixTrie.js" />
-        <option value="$PROJECT_DIR$/BigNumber.js" />
         <option value="$PROJECT_DIR$/MinHeap.js" />
         <option value="$PROJECT_DIR$/SegmentTree.js" />
+        <option value="$PROJECT_DIR$/BigNumber.js" />
+        <option value="$PROJECT_DIR$/NonNegativeStringIntegerMultiply.js" />
       </list>
     </option>
   </component>
@@ -174,8 +179,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="6" />
-    <option name="y" value="36" />
+    <option name="x" value="-10" />
+    <option name="y" value="23" />
     <option name="width" value="1280" />
     <option name="height" value="754" />
   </component>
@@ -227,7 +232,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/SegmentTree.js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/NonNegativeStringIntegerMultiply.js" />
     <property name="recentsLimit" value="5" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="225" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
@@ -253,7 +258,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Node.js.hidash.js">
-    <configuration default="false" name="hidash.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="/usr/local/bin/node" path-to-js-file="SegmentTree.js" working-dir="$PROJECT_DIR$">
+    <configuration default="false" name="hidash.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="/usr/local/bin/node" path-to-js-file="NonNegativeStringIntegerMultiply.js" working-dir="$PROJECT_DIR$">
       <RunnerSettings RunnerId="Basic" />
       <RunnerSettings RunnerId="debuggableProgram" />
       <ConfigurationWrapper RunnerId="Basic" />
@@ -318,7 +323,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="6" y="36" width="1280" height="754" extended-state="6" />
+    <frame x="-10" y="23" width="1280" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -550,16 +555,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BigNumber.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
-          <caret line="22" column="2" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
-          <folding>
-            <element signature="n#!!doc;n#BigNumber#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MinHeap.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="334" max-vertical-offset="765">
@@ -630,10 +625,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SegmentTree.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.4547563" vertical-offset="0" max-vertical-offset="2520">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2089" max-vertical-offset="2520">
           <caret line="130" column="5" selection-start-line="130" selection-start-column="5" selection-end-line="130" selection-end-column="5" />
           <folding>
             <element signature="e#0#39#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BigNumber.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="439" max-vertical-offset="1200">
+          <caret line="41" column="37" selection-start-line="41" selection-start-column="37" selection-end-line="41" selection-end-column="37" />
+          <folding>
+            <element signature="n#!!doc;n#StringBuilder#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NonNegativeStringIntegerMultiply.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7911833" vertical-offset="4219" max-vertical-offset="4650">
+          <caret line="306" column="33" selection-start-line="306" selection-start-column="33" selection-end-line="306" selection-end-column="33" />
+          <folding>
+            <element signature="n#!!doc;n#stringIntegerMultiply#0" expanded="false" />
           </folding>
         </state>
       </provider>
