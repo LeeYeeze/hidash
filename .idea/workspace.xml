@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0861322c-43cc-4ed1-bde0-ba26a7b3810e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NonNegativeStringIntegerMultiply.js" afterPath="$PROJECT_DIR$/NonNegativeStringIntegerMultiply.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BigNumber.js" afterPath="$PROJECT_DIR$/BigNumber.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="hidash.iws" />
@@ -121,11 +121,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BigNumber.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BigNumber.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/BigNumber.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="439" max-vertical-offset="1200">
-              <caret line="41" column="37" selection-start-line="41" selection-start-column="37" selection-end-line="41" selection-end-column="37" />
+            <state vertical-scroll-proportion="13.364269" vertical-offset="450" max-vertical-offset="6435">
+              <caret line="416" column="35" selection-start-line="416" selection-start-column="35" selection-end-line="416" selection-end-column="35" />
               <folding>
                 <element signature="n#!!doc;n#StringBuilder#0" expanded="false" />
               </folding>
@@ -133,11 +133,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NonNegativeStringIntegerMultiply.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NonNegativeStringIntegerMultiply.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NonNegativeStringIntegerMultiply.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.321782" vertical-offset="4111" max-vertical-offset="4515">
-              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="4051" max-vertical-offset="4515">
+              <caret line="297" column="39" selection-start-line="26" selection-start-column="0" selection-end-line="297" selection-end-column="39" />
               <folding>
                 <element signature="n#!!doc;n#stringIntegerMultiply#0" expanded="false" />
               </folding>
@@ -169,8 +169,8 @@
         <option value="$PROJECT_DIR$/SuffixTrie.js" />
         <option value="$PROJECT_DIR$/MinHeap.js" />
         <option value="$PROJECT_DIR$/SegmentTree.js" />
-        <option value="$PROJECT_DIR$/BigNumber.js" />
         <option value="$PROJECT_DIR$/NonNegativeStringIntegerMultiply.js" />
+        <option value="$PROJECT_DIR$/BigNumber.js" />
       </list>
     </option>
   </component>
@@ -205,6 +205,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -225,12 +226,11 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/NonNegativeStringIntegerMultiply.js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/BigNumber.js" />
     <property name="recentsLimit" value="5" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="225" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
@@ -257,7 +257,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Node.js.hidash.js">
-    <configuration default="false" name="hidash.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="/usr/local/bin/node" path-to-js-file="NonNegativeStringIntegerMultiply.js" working-dir="$PROJECT_DIR$">
+    <configuration default="false" name="hidash.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="/usr/local/bin/node" path-to-js-file="BigNumber.js" working-dir="$PROJECT_DIR$">
       <RunnerSettings RunnerId="Basic" />
       <RunnerSettings RunnerId="debuggableProgram" />
       <ConfigurationWrapper RunnerId="Basic" />
@@ -800,22 +800,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BigNumber.js">
+    <entry file="file://$PROJECT_DIR$/NonNegativeStringIntegerMultiply.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="439" max-vertical-offset="1200">
-          <caret line="41" column="37" selection-start-line="41" selection-start-column="37" selection-end-line="41" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="4051" max-vertical-offset="4515">
+          <caret line="297" column="39" selection-start-line="26" selection-start-column="0" selection-end-line="297" selection-end-column="39" />
           <folding>
-            <element signature="n#!!doc;n#StringBuilder#0" expanded="false" />
+            <element signature="n#!!doc;n#stringIntegerMultiply#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NonNegativeStringIntegerMultiply.js">
+    <entry file="file://$PROJECT_DIR$/BigNumber.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.321782" vertical-offset="4111" max-vertical-offset="4515">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        <state vertical-scroll-proportion="13.364269" vertical-offset="450" max-vertical-offset="6435">
+          <caret line="416" column="35" selection-start-line="416" selection-start-column="35" selection-end-line="416" selection-end-column="35" />
           <folding>
-            <element signature="n#!!doc;n#stringIntegerMultiply#0" expanded="false" />
+            <element signature="n#!!doc;n#StringBuilder#0" expanded="false" />
           </folding>
         </state>
       </provider>
