@@ -8,7 +8,7 @@ function StringBuilder() {
 
 StringBuilder.prototype.append = function() {
 
-}
+};
 
 StringBuilder.prototype.reverse = function() {
 
@@ -17,6 +17,8 @@ StringBuilder.prototype.reverse = function() {
 StringBuilder.prototype.toString = function() {
 
 };
+
+
 
 function BigIntegerMultiply(num1, num2) {
     var buffer = [];
@@ -42,13 +44,30 @@ function BigIntegerMultiply(num1, num2) {
     return buffer.reverse().join('');
 }
 
-function addBigInteger(num1, num2) {
+function fractionMultiply() {
+
+
+}
+
+function fractionDivide() {
+
+}
+
+function fractionAdd() {
+
+}
+
+function fractionSubtract() {
+
+}
+
+function addBigPositiveInteger(num1, num2, startCarry) {
     var buffer = [];
     if (num1 == null || num2 == null || num1.length == 0 || num2.length == 0)
         return null;
     var index1 = num1.length -1;
     var index2 = num2.length -1;
-    var carry = 0;
+    var carry = startCarry || 0;
     while (index1 >= 0 && index2 >= 0) {
         var operand1 = typeof num1 == "string"?num1.charAt(index1)-0:parseInt(num1[index1]);
         var operand2 = typeof num2 == "string"?num2.charAt(index2)-0:parseInt(num2[index2]);
@@ -74,7 +93,7 @@ function addBigInteger(num1, num2) {
     }
     if (carry > 0)
         buffer.push(String(carry));
-    return buffer.reverse().join('');
+    return buffer.reverse();
 }
 
 function BigIntegerAddReturnLastCarry() {
@@ -82,6 +101,149 @@ function BigIntegerAddReturnLastCarry() {
 }
 
 function addBigNumberDecimalFractionWithCarry(num1, num2) {
+    var res = [];
+    var carry = 0;
+    if (!(num1 == null || num1.length == 0) || !(num2 == null || num2.length == 0)) {
+        var index1 = num1.length -1;
+        var index2 = num2.length -1;
+        for (var index = Math.max(index1, index2); index >= 0; index--) {
+            var operand1 = index > index1? 0: typeof num1 == "string"? Number(num1.charAt(index)): Number(num1[index]);
+            var operand2 = index > index2? 0: typeof num2 == "string"? Number(num2.charAt(index)): Number(num2[index]);
+            var add = (operand1 + operand2 + carry)%10;
+            carry = Math.floor((operand1 + operand2 + carry)/10);
+            res[index] = String(add);
+        }
+    }
+    return {carry: carry, res: res};
+}
+
+function addBigIntegerWithSign(num1, num2, negFlag1, negFlag2, startCarry) {
+    //var negFlagOfResult = false;
+    var res = {};
+    if (negFlag1 && negFlag2) {
+        res.abs = addBigPositiveInteger(num1, num2, startCarry);
+        res.negFlag = true;
+    } else if (!negFlag1 && !negFlag2) {
+        res.abs = addBigPositiveInteger(num1, num2, startCarry);
+        res.negFlag = false;
+    } else if (!negFlag1 && negFlag2) {
+        res = addBigPositiveAndNegativeInteger(num1, num2, startCarry);
+    } else {
+        res = addBigPositiveAndNegativeInteger(num2, num1, startCarry);
+    }
+    return res;
+
+}
+
+function trimPrefixZeros(arr) {
+    if (arr == null || arr.length == 0 || arr[0]!=0)
+        return;
+    var i = 0;
+    while (arr[i] == 0) {
+        i++;
+    }
+    arr.splice(0,i);
+    if (arr.length == 0) {
+        arr[0] = 0;
+    }
+    return arr;
+
+}
+
+function trimSuffixZeros(arr) {
+    if (arr == null || arr.length == 0 || arr[arr.length -1] !=0)
+        return;
+    var i = arr.length - 1;
+    while (arr[i] == 0) {
+        i--;
+    }
+    i++;
+    arr.splice(i, arr.length - i);
+    return arr;
+}
+
+function addBigPositiveAndNegativeInteger(num1, num2, startCarry) {
+    var negFlagOfResult = false;
+    var buffer = [];
+    if (num1 == null || num2 == null || num1.length == 0 || num2.length == 0)
+        return null;
+    var index1 = num1.length -1;
+    var index2 = num2.length -1;
+    var carry = startCarry || 0;
+    while (index1 >= 0 && index2 >= 0) {
+        var operand1 = typeof num1 == "string"?num1.charAt(index1)-0:parseInt(num1[index1]);
+        var operand2 = typeof num2 == "string"?num2.charAt(index2)-0:parseInt(num2[index2]);
+        var temp = operand1 - operand2 + carry;
+
+        var res = temp < 0 ? 10 + temp : temp;
+        carry = temp < 0 ? -1 : 0;
+        buffer.push(String(res));
+        index1--;
+        index2--;
+    }
+    while (index1>=0) {
+        var operand1 = typeof num1 == "string"?num1.charAt(index1)-0:parseInt(num1[index1]);
+        var temp = operand1 + carry;
+        var res = temp < 0 ? 10 + temp: temp;
+        carry = temp < 0 ? -1 : 0;
+        buffer.push(String(res));
+        index1--;
+    }
+    while (index2>=0) {
+        var operand2 = typeof num2 == "string"?num2.charAt(index2)-0:parseInt(num2[index2]);
+        var temp = -operand2 + carry;
+        var res = temp < 0 ? 10 + temp: temp;
+        carry = temp < 0 ? -1 : 0;
+        buffer.push(String(res));
+        index2--;
+    }
+    if (carry < 0) {
+        //buffer.push(String(9));
+        var flip = addBigPositiveAndNegativeInteger(num2, num1, -startCarry);
+        flip.negFlag = true;
+        return flip;
+    }
+    return {abs:trimPrefixZeros(buffer.reverse()), negFlag: negFlagOfResult};
+
+
+    //for () {
+
+    //}
+
+}
+
+function minusBigIntegerWithSign() {
+
+}
+
+function addBigDecimalNumberWithoutExponentPart(big1, big2) {
+    var decimalFractionResult= addBigNumberDecimalFractionWithCarry(big1.buffers.buffer2, big2.buffers.buffer2);
+    var integerPart = addBigIntegerWithSign(big1.buffers.buffer1, big2.buffers.buffer1, big1.buffers.negative, big2.buffers.negative, decimalFractionResult.carry);
+    return {integerPart: integerPart.abs, decimalPart: decimalFractionResult.res, negative:integerPart.negFlag};
+
+}
+
+function multiplyBigDecimalNumberWithoutExponentPart(big1, big2) {
+
+}
+
+function addBigDecimalAndHexNumber() {
+
+}
+
+function addBigHexNumber() {
+
+}
+
+function addBigOctNumber() {
+
+}
+
+function addBigOctAndHexNumber() {
+
+}
+
+function addBigOctAndDecimalNumber() {
 
 }
 
@@ -96,6 +258,7 @@ function isDigit(ch) {
 function isHexDigit(ch) {
     return (ch >= '0' && ch <= '9') || (ch >= 'a'&& ch <= 'f') || (ch >='A' && ch <= 'F');
 }
+
 function parseStringInteger(s, i, buffer) {
     while (i < s.length && isDigit(s.charAt(i))) {
         buffer.push(s.charAt(i));
@@ -103,6 +266,7 @@ function parseStringInteger(s, i, buffer) {
     }
     return i;
 }
+
 function parseDecimalFraction(s,i,buffer) {
     i++;
     //parseStringInteger(s, i ,buffer);
@@ -382,7 +546,10 @@ function isWhitespace(ch) {
 
 function BigNumber(s) {
     this.numString = s.trim();
-    this.buffers = parseStringNumber(s);
+    if (typeof  s == "string") {
+        this.buffers = parseStringNumber(s);
+    }
+
 
 }
 BigNumber.prototype.isValidNumber = function() {
@@ -409,13 +576,39 @@ BigNumber.prototype.toFixed = function() {
 
 };
 
+BigNumber.prototype.GCD = function() {
+
+};
+
+BigNumber.prototype.LCM = function() {
+
+};
+
+BigNumber.prototype.biggerThan = function() {
+
+};
+
+BigNumber.prototype.equals = function() {
+
+};
+
+BigNumber.prototype.lessThan = function() {
+
+};
+
 var dog = new BigNumber("-.1");
 console.log(dog);
 //console.log(stringIntegerMultiply(['1','2','3'],"000001"));
 //console.log(parseStringNumber(".5e-335"));
 
-console.log(addBigInteger("11","999"));
-
+console.log(addBigPositiveInteger("11","999"));
+//console.log(addBigNumberDecimalFractionWithCarry([1],[]));
+var dog1 = new BigNumber("21.5");
+var dog2 = new BigNumber(".66");
+var dog3 = new BigNumber("-18.999");
+console.log(addBigDecimalNumberWithoutExponentPart(dog1, dog2));
+console.log(trimSuffixZeros([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]));
+console.log(addBigPositiveAndNegativeInteger([1,6],[1,2],-1));
 
 
 
