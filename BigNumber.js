@@ -271,6 +271,58 @@ function addBigPositiveAndNegativeInteger(num1, num2, startCarry) {
 
 }
 
+function addBigPositiveAndNegativeBinary(num1, num2, startCarry) {
+    // num1 is positive, num2 is negative
+    var negFlagOfResult = false;
+    var buffer = [];
+    if (num1 == null || num2 == null)
+        return null;
+    var index1 = num1.length -1;
+    var index2 = num2.length -1;
+    var carry = startCarry || 0;
+    var startCarry = carry;
+    while (index1 >= 0 && index2 >= 0) {
+        var operand1 = typeof num1 == "string"?num1.charAt(index1)-0:parseInt(num1[index1]);
+        var operand2 = typeof num2 == "string"?num2.charAt(index2)-0:parseInt(num2[index2]);
+        var temp = operand1 - operand2 + carry;
+
+        var res = temp < 0 ? 2 + temp : temp;
+        carry = temp < 0 ? -1 : 0;
+        buffer.push(String(res));
+        index1--;
+        index2--;
+    }
+    while (index1>=0) {
+        var operand1 = typeof num1 == "string"?num1.charAt(index1)-0:parseInt(num1[index1]);
+        var temp = operand1 + carry;
+        var res = temp < 0 ? 2 + temp: temp;
+        carry = temp < 0 ? -1 : 0;
+        buffer.push(String(res));
+        index1--;
+    }
+    while (index2>=0) {
+        var operand2 = typeof num2 == "string"?num2.charAt(index2)-0:parseInt(num2[index2]);
+        var temp = -operand2 + carry;
+        var res = temp < 0 ? 2 + temp: temp;
+        carry = temp < 0 ? -1 : 0;
+        buffer.push(String(res));
+        index2--;
+    }
+    if (carry < 0) {
+        negFlagOfResult = true;
+
+    }
+    buffer.reverse();
+    trimPrefixZeros(buffer);
+    return {abs:buffer, negFlag: negFlagOfResult};
+
+
+    //for () {
+
+    //}
+
+}
+
 function minusBigIntegerWithSign() {
 
 }
@@ -325,8 +377,95 @@ function divideBigInteger(num1, num2) {
 
 }
 
-function bigIntegerToBinary() {
-    
+function bigIntegerToBinary(num) {
+    if (num == null || num.length == 0)
+        return ['0'];
+    trimPrefixZeros(num);
+    var res = [];
+    var index = 0;
+    var dividend = num;
+    while (true) {
+        var step = dividedByTwo(dividend);
+        res[index++] = step.remainder[0];
+        if (step.quotient.join('') == 0) {
+            res.reverse();
+            break;
+        }
+        dividend = step.quotient;
+    }
+    return res;
+}
+
+function dividedByTwo(num) {
+    if (num == null || num.length == 0)
+        return ['0'];
+    trimPrefixZeros(num);
+    var res = [];
+    var tempDividend = 0;
+    for (var i = 0; i < num.length; i++) {
+        var tempDividend = 10 * tempDividend + Number(typeof num == "string"? num.charAt(i):num[i]);
+        var digit = Math.floor(tempDividend/2);
+        if (res.length > 0 || digit > 0) {
+            res.push(String(digit));
+        }
+        tempDividend = tempDividend%2;
+    }
+    if (res.length == 0)
+        res[0] = '0';
+    //res.reverse();
+    var remainder = [String(tempDividend)];
+    return {quotient: res, remainder: remainder};
+}
+
+function compareTowBinary(num1, num2) {
+    trimPrefixZeros(num1);
+    trimPrefixZeros(num2);
+    if (num1.length > num2.length)
+        return 1;
+    else if (num1.length < num2.length) {
+        return -1;
+    } else {
+        for (var i = 0; i < num1.length; i++) {
+            if (Number(num1[i])>Number(num2[i]))
+                return 1;
+            else if (Number(num1[i])<Number(num2[i]))
+                return -1
+        }
+        return 0;
+
+    }
+
+}
+
+function binaryDivision(dividend, divisor) {
+    trimPrefixZeros(dividend);
+    trimPrefixZeros(divisor);
+    if (divisor[0] == 0)
+        throw "divide by zero";
+    var quotient = [];
+    var remainder = [0];
+    for (var i = 0; i < dividend.length; i++) {
+        remainder.push(0);
+        remainder[remainder.length-1] = dividend[i];
+        var flag = compareTowBinary(remainder, divisor);
+        if (flag>=0) {
+            remainder = addBigPositiveAndNegativeBinary(remainder, divisor).abs;
+            quotient[i] = 1;
+        } else {
+            quotient[i] = 0
+        }
+
+    }
+    return quotient;
+}
+
+
+function bigBinaryToInteger(num) {
+
+}
+
+function FFT() {
+
 }
 
 function divideBigFloat() {
@@ -760,7 +899,7 @@ BigNumber.prototype.getAbs = function() {
 
 };
 
-var dog = new BigNumber("-9.11e-12");
+var dog = new BigNumber("1.1");
 //console.log(dog);
 //console.log(stringIntegerMultiply(['1','2','3'],"000001"));
 //console.log(parseStringNumber(".5e-335"));
@@ -768,18 +907,23 @@ var dog = new BigNumber("-9.11e-12");
 //console.log(addBigPositiveInteger("11","999"));
 //console.log(addBigNumberDecimalFractionWithCarry([1],[]));
 //var dog1 = new BigNumber("-22.22");
-var dog2 = new BigNumber("-0.9e-12");
-console.log(dog2);
-var dog3 = new BigNumber(".199");
+var dog2 = new BigNumber("-1.1");
+//console.log(dog2);
+var dog3 = new BigNumber("1");
 var dog4 = new BigNumber("1.1");
-console.log(addBigDecimalNumberWithoutExponentPart(dog, dog4));
+var dog5 = new BigNumber("-2")
+//console.log(addBigDecimalNumberWithoutExponentPart(dog3, dog5));
 //console.log(trimSuffixZeros([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]));
 //console.log(addBigPositiveAndNegativeInteger([1,2],[1,4],-1));
 //console.log(addBigPositiveAndNegativeInteger([2,1], [1], -1));
-console.log(multiplyBigDecimalNumberWithExponentPart(dog2,dog));
+//console.log(multiplyBigDecimalNumberWithExponentPart(dog2,dog));
 //console.log(addBigIntegerWithSign([1],[2],false,true,0));
 //console.log(addBigIntegerWithSignWithoutCarryFromDecimalPart([1],[2],false,true));
 //console.log(addBigPositiveInteger());
+
+//console.log(dividedByTwo([1,1,8]));
+//console.log(bigIntegerToBinary([1,2,3]));
+console.log(binaryDivision([1,0,1],[1,0]));
 
 
 
