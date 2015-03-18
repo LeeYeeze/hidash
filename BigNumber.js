@@ -36,12 +36,12 @@ function BigIntegerMultiply(num1, num2) {
             }
         }
         if (i!=1 || num>0) {
-            buffer.push(num%10);
+            buffer.push(String(num%10));
         }
         num = Math.floor(num/10);
 
     }
-    return buffer.reverse().join('');
+    return buffer.reverse();
 }
 
 function fractionMultiply() {
@@ -63,7 +63,7 @@ function fractionSubtract() {
 
 function addBigPositiveInteger(num1, num2, startCarry) {
     var buffer = [];
-    if (num1 == null || num2 == null || num1.length == 0 || num2.length == 0)
+    if (num1 == null || num2 == null)
         return null;
     var index1 = num1.length -1;
     var index2 = num2.length -1;
@@ -168,6 +168,30 @@ function addBigIntegerWithSign(num1, num2, negFlag1, negFlag2, startCarry) {
 
 }
 
+function addBigIntegerWithSignWithoutCarryFromDecimalPart(num1, num2, negFlag1, negFlag2) {
+    var res = {};
+    if (negFlag1 && negFlag2) {
+        res.abs = addBigPositiveInteger(num1, num2, 0);
+        res.negFlag = true;
+    } else if (!negFlag1 && !negFlag2) {
+        res.abs = addBigPositiveInteger(num1, num2, 0);
+        res.negFlag = false;
+    } else if (!negFlag1 && negFlag2) {
+        res = addBigPositiveAndNegativeInteger(num1, num2, 0);
+        if (res.negFlag == true) {
+            res = addBigPositiveAndNegativeInteger(num2, num1, 0);
+            res.negFlag = true;
+        }
+    } else {
+        res = addBigPositiveAndNegativeInteger(num2, num1, 0);
+        if (res.negFlag == true) {
+            res = addBigPositiveAndNegativeInteger(num1, num2, 0);
+            res.negFlag = true;
+        }
+    }
+    return res;
+}
+
 function trimPrefixZeros(arr) {
     if (arr == null || arr.length == 0 || arr[0]!=0)
         return;
@@ -199,7 +223,7 @@ function addBigPositiveAndNegativeInteger(num1, num2, startCarry) {
     // num1 is positive, num2 is negative
     var negFlagOfResult = false;
     var buffer = [];
-    if (num1 == null || num2 == null || num1.length == 0 || num2.length == 0)
+    if (num1 == null || num2 == null)
         return null;
     var index1 = num1.length -1;
     var index2 = num2.length -1;
@@ -263,9 +287,49 @@ function addBigDecimalNumberWithoutExponentPart(big1, big2) {
     return {integerPart: integerPart.abs, decimalPart: decimalFractionResult.res, negative:integerPart.negFlag};
 }
 
-function 
+function multiplyBigDecimalNumberWithExponentPart(big1, big2) {
+    var negFlag = false;
+    if (big1.buffers.negative != big2.buffers.negative) {
+        negFlag = true;
+    }
+    var total1 = big1.buffers.buffer1.concat(big1.buffers.buffer2);
+    var total2 = big2.buffers.buffer1.concat(big2.buffers.buffer2);
+    var lenDecimalPart1 = big1.buffers.buffer2.length;
+    var lenDecimalPart2 = big2.buffers.buffer2.length;
+    var lenDecimalPart = lenDecimalPart1 + lenDecimalPart2;
+    var total3 = BigIntegerMultiply(total1, total2);
+    var len = total3.length;
+    var decimalStart = len - lenDecimalPart;
+    var decimalPart = total3.slice(decimalStart, len);
+    var integerPart = total3.slice(0,decimalStart);
+    var eRes = addBigIntegerWithSignWithoutCarryFromDecimalPart(big1.buffers.buffer3, big2.buffers.buffer3, big1.buffers.eNegative, big2.buffers.eNegative);
+    return {integerPart: integerPart, decimalPart:decimalPart, negFlag: negFlag, eNegative: eRes.negFlag, eAbs: eRes.abs};
+
+}
+
 
 function multiplyBigDecimalNumberWithoutExponentPart(big1, big2) {
+
+}
+
+function addBigDecimalNumberWithExponentPart(big1, big2) {
+
+
+}
+
+function compareTwoAbsBigNumbers(num1, num2) {
+
+}
+
+function divideBigInteger(num1, num2) {
+
+}
+
+function divideBigFloat() {
+
+}
+
+function bigIntegerGCD() {
 
 }
 
@@ -338,6 +402,24 @@ function parseDecimal(s, i , buffer) {
     return i;
 }
 
+function parseExponentPart(s, i , buffers) {
+    if (i >= s.length)
+        return --i;
+    i++;
+    var ch = s.charAt(i);
+    if (ch == '-') {
+        i++;
+        buffers.eNegative = true;
+    }
+    if (ch == '+') {
+        i++;
+    }
+    if (i >= s.length)
+        return --i;
+    return parseDecimal(s, i ,buffers.buffer3);
+
+}
+
 function parseStartWithZero(s, i, buffers) {
     i++;
     buffers.buffer1.push('0');
@@ -388,12 +470,17 @@ function parseStartWithZero(s, i, buffers) {
             //buffer1 = buffer1.concat(octBuffer);
             buffers.octBuffer = [];
             i = parseDecimal(s, i , buffers.buffer1);
+            if (i < s.length && (s.charAt(i) == 'e' || s.charAt(i) == 'E'))
+                i = parseExponentPart(s, i, buffers);
+
         } else {
             //octBuffer = buffer1.concat(octBuffer);
             buffers.buffer1 = [];
         }
     } else if (isDigit(ch)) {
         i = parseDecimal(s, i , buffers.buffer1);
+        if (i < s.length && (s.charAt(i) == 'e' || s.charAt(i) == 'E'))
+            i = parseExponentPart(s, i, buffers);
     }
     return i;
 
@@ -638,21 +725,58 @@ BigNumber.prototype.lessThan = function() {
 
 };
 
-var dog = new BigNumber("-.111");
+BigNumber.prototype.floor = function() {
+
+};
+
+BigNumber.prototype.round = function() {
+
+};
+
+BigNumber.prototype.ceil = function() {
+
+};
+
+BigNumber.prototype.factorize = function() {
+
+};
+
+BigNumber.prototype.modulo = function() {
+
+};
+
+BigNumber.prototype.power = function() {
+
+};
+
+
+
+
+BigNumber.prototype.getAbs = function() {
+
+};
+
+var dog = new BigNumber("-9.11e-12");
 //console.log(dog);
 //console.log(stringIntegerMultiply(['1','2','3'],"000001"));
 //console.log(parseStringNumber(".5e-335"));
 
 //console.log(addBigPositiveInteger("11","999"));
 //console.log(addBigNumberDecimalFractionWithCarry([1],[]));
-var dog1 = new BigNumber("-22.22");
-var dog2 = new BigNumber("1.11");
+//var dog1 = new BigNumber("-22.22");
+var dog2 = new BigNumber("-09e-12");
+console.log(dog2);
 var dog3 = new BigNumber(".199");
-var dog4 = new BigNumber("1.23");
+var dog4 = new BigNumber("1.1");
 console.log(addBigDecimalNumberWithoutExponentPart(dog, dog4));
 //console.log(trimSuffixZeros([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]));
 //console.log(addBigPositiveAndNegativeInteger([1,2],[1,4],-1));
 //console.log(addBigPositiveAndNegativeInteger([2,1], [1], -1));
+console.log(multiplyBigDecimalNumberWithExponentPart(dog2,dog));
+//console.log(addBigIntegerWithSign([1],[2],false,true,0));
+//console.log(addBigIntegerWithSignWithoutCarryFromDecimalPart([1],[2],false,true));
+//console.log(addBigPositiveInteger());
+
 
 
 
