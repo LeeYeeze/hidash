@@ -325,6 +325,10 @@ function divideBigInteger(num1, num2) {
 
 }
 
+function bigIntegerToBinary() {
+    
+}
+
 function divideBigFloat() {
 
 }
@@ -764,7 +768,7 @@ var dog = new BigNumber("-9.11e-12");
 //console.log(addBigPositiveInteger("11","999"));
 //console.log(addBigNumberDecimalFractionWithCarry([1],[]));
 //var dog1 = new BigNumber("-22.22");
-var dog2 = new BigNumber("-09e-12");
+var dog2 = new BigNumber("-0.9e-12");
 console.log(dog2);
 var dog3 = new BigNumber(".199");
 var dog4 = new BigNumber("1.1");

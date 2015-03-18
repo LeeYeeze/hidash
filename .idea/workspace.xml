@@ -63,16 +63,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RedBlackTree.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/RedBlackTree.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="120">
-              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="AVLTree.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AVLTree.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -112,8 +102,18 @@
       <file leaf-file-name="BigNumber.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/BigNumber.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.116337" vertical-offset="11296" max-vertical-offset="11880">
-              <caret line="319" column="22" selection-start-line="319" selection-start-column="22" selection-end-line="319" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.7029703" vertical-offset="4636" max-vertical-offset="11940">
+              <caret line="328" column="4" selection-start-line="328" selection-start-column="4" selection-end-line="328" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hidash.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hidash.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-32.35484" vertical-offset="7352" max-vertical-offset="18000">
+              <caret line="557" column="1" selection-start-line="557" selection-start-column="1" selection-end-line="557" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -633,13 +633,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hidash.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.4444447" vertical-offset="4125" max-vertical-offset="18000">
-          <caret line="283" column="0" selection-start-line="241" selection-start-column="0" selection-end-line="283" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/RTree.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="431">
@@ -789,10 +782,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/hidash.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-32.35484" vertical-offset="7352" max-vertical-offset="18000">
+          <caret line="557" column="1" selection-start-line="557" selection-start-column="1" selection-end-line="557" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/BigNumber.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.116337" vertical-offset="11296" max-vertical-offset="11880">
-          <caret line="319" column="22" selection-start-line="319" selection-start-column="22" selection-end-line="319" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.7029703" vertical-offset="4636" max-vertical-offset="11940">
+          <caret line="328" column="4" selection-start-line="328" selection-start-column="4" selection-end-line="328" selection-end-column="4" />
           <folding />
         </state>
       </provider>
