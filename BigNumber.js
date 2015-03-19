@@ -417,7 +417,7 @@ function dividedByTwo(num) {
     return {quotient: res, remainder: remainder};
 }
 
-function compareTowBinary(num1, num2) {
+function compareTwoBinary(num1, num2) {
     trimPrefixZeros(num1);
     trimPrefixZeros(num2);
     if (num1.length > num2.length)
@@ -434,7 +434,10 @@ function compareTowBinary(num1, num2) {
         return 0;
 
     }
+}
 
+function compareTwoInteger(num1, num2) {
+    return compareTwoBinary(num1, num2);
 }
 
 function binaryDivision(dividend, divisor) {
@@ -443,11 +446,11 @@ function binaryDivision(dividend, divisor) {
     if (divisor[0] == 0)
         throw "divide by zero";
     var quotient = [];
-    var remainder = [0];
+    var remainder = [];
     for (var i = 0; i < dividend.length; i++) {
         remainder.push(0);
         remainder[remainder.length-1] = dividend[i];
-        var flag = compareTowBinary(remainder, divisor);
+        var flag = compareTwoBinary(remainder, divisor);
         if (flag>=0) {
             remainder = addBigPositiveAndNegativeBinary(remainder, divisor).abs;
             quotient[i] = 1;
@@ -456,7 +459,38 @@ function binaryDivision(dividend, divisor) {
         }
 
     }
-    return quotient;
+    trimPrefixZeros(quotient);
+    return {quotient:quotient, remainder: remainder};
+}
+
+function decimalDivisionIntegerPart(dividend, divisor) {
+    trimPrefixZeros(dividend);
+    trimPrefixZeros(divisor);
+    if (divisor[0] == 0)
+        throw "divide by zero";
+    var quotient = [];
+    var remainder = [];
+    for (var i = 0; i < dividend.length; i++) {
+        remainder.push(0);
+        remainder[remainder.length -1] = dividend[i];
+        var flag = compareTwoInteger(remainder, divisor);
+        quotient[i] = 0;
+        if (flag>=0) {
+            do {
+                remainder = addBigPositiveAndNegativeInteger(remainder, divisor).abs;
+                quotient[i]++;
+                //console.log(remainder);
+            } while (compareTwoInteger(remainder, divisor)>=0);
+        } else {
+            quotient[i] = 0;
+        }
+    }
+    trimPrefixZeros(quotient);
+    return {quotient: quotient, remainder:remainder};
+}
+
+function decimalDivisionDecimalPart() {
+
 }
 
 
@@ -923,7 +957,9 @@ var dog5 = new BigNumber("-2")
 
 //console.log(dividedByTwo([1,1,8]));
 //console.log(bigIntegerToBinary([1,2,3]));
-console.log(binaryDivision([1,0,1],[1,0]));
+//console.log(binaryDivision([1,0,1,1],[1,0,1]));
+
+console.log(decimalDivisionIntegerPart("11111111111111111111111111111111111111111111111111111111111111111111111111111111111111",[9]));
 
 
 
