@@ -463,7 +463,7 @@ function binaryDivision(dividend, divisor) {
     return {quotient:quotient, remainder: remainder};
 }
 
-function decimalDivisionIntegerPart(dividend, divisor) {
+function decimalDivisionIntegerPart(dividend, divisor, negFlag1, negFlag2) {
     trimPrefixZeros(dividend);
     trimPrefixZeros(divisor);
     if (divisor[0] == 0)
@@ -489,9 +489,75 @@ function decimalDivisionIntegerPart(dividend, divisor) {
     return {quotient: quotient, remainder:remainder};
 }
 
-function decimalDivisionDecimalPart() {
+function decimalDivisionDecimalPart(dividend, divisor, fixedLength) {
+    //Assume dividend < divisor
+    trimPrefixZeros(dividend);
+    trimPrefixZeros(divisor);
+    var newDividend = dividend.slice(0);
+    var newDivisor = divisor.slice(0);
+    var quotient = [];
+    var remainder = dividend.slice(0);
+    var carry = 0;
+    for (var i = 0; i <= fixedLength; i++) {
+        //newDividend.push('0');
+        remainder.push(0);
+        var flag = compareTwoInteger(remainder,divisor);
+        quotient[i] = 0;
+        if (flag >=0) {
+            do {
+                remainder = addBigPositiveAndNegativeInteger(remainder, divisor).abs;
+                quotient[i]++;
+                //console.log(remainder);
+            } while (compareTwoInteger(remainder, divisor)>=0);
+        } else {
+            quotient[i] = 0;
+        }
+    }
+    var res;
+    if (quotient[fixedLength]>=5) {
+        quotient.pop();
+        var delta = [];
+        for (var j = 0; j < quotient.length; j++) {
+            delta[j] = 0;
+        }
+        delta[quotient.length-1] = 1;
+        res = addBigNumberDecimalFractionWithCarry(quotient, delta);
+    } else {
+        quotient.pop();
+        res = {carry:0, quotient: quotient};
+    }
+    return res;
 
 }
+
+function IntegerGCD() {
+
+}
+
+function IntegerLCM() {
+
+}
+
+function restoringDivision(dividend, divisor) {
+
+}
+
+function bigNumberSqrtWithoutExponentPart(big) {
+
+}
+
+function bigNumberSqrtWithExponentPart() {
+
+}
+
+function bigNumberCubeRootWithoutExponentPart() {
+
+}
+
+function bigNumberCubeRootWithExponentPart() {
+
+}
+
 
 
 function bigBinaryToInteger(num) {
@@ -943,10 +1009,10 @@ var dog = new BigNumber("1.1");
 //var dog1 = new BigNumber("-22.22");
 var dog2 = new BigNumber("-1.1");
 //console.log(dog2);
-var dog3 = new BigNumber("1");
+var dog3 = new BigNumber("1.1");
 var dog4 = new BigNumber("1.1");
-var dog5 = new BigNumber("-2")
-//console.log(addBigDecimalNumberWithoutExponentPart(dog3, dog5));
+var dog5 = new BigNumber("-2.3");
+console.log(addBigDecimalNumberWithoutExponentPart(dog3, dog5));
 //console.log(trimSuffixZeros([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]));
 //console.log(addBigPositiveAndNegativeInteger([1,2],[1,4],-1));
 //console.log(addBigPositiveAndNegativeInteger([2,1], [1], -1));
@@ -959,7 +1025,9 @@ var dog5 = new BigNumber("-2")
 //console.log(bigIntegerToBinary([1,2,3]));
 //console.log(binaryDivision([1,0,1,1],[1,0,1]));
 
-console.log(decimalDivisionIntegerPart("11111111111111111111111111111111111111111111111111111111111111111111111111111111111111",[9]));
+//console.log(decimalDivisionIntegerPart("11111111111111111111111111111111111111111111111111111111111111111111111111111111111111",[9]));
+console.log(decimalDivisionDecimalPart([9,9,9,9,9,9,9,9,9,9],[1,0,0,0,0,0,0,0,0,0,0],5));
+
 
 
 
