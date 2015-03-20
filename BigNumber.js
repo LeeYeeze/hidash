@@ -19,7 +19,6 @@ StringBuilder.prototype.toString = function() {
 };
 
 
-
 function BigIntegerMultiply(num1, num2) {
     var buffer = [];
     if (num1 == null || num2 == null || num1.length == 0 || num2.length == 0) {
@@ -542,8 +541,92 @@ function restoringDivision(dividend, divisor) {
 
 }
 
-function bigNumberSqrtWithoutExponentPart(big) {
+function bigNumberSqrtWithoutExponentPart(big, precision) {
+    if (big == null)
+        throw "ERROR";
+    var fixedLen = precision || 6;
+    trimPrefixZeros(big.buffers.buffer1);
+    var len1 = big.buffers.buffer1.length;
+    var pair;
+    var start = 0;
+    if (len1%2== 1) {
+        pair = big.buffers.buffer1.slice(0,1);
+        start = 1;
+    } else {
+        pair = big.buffers.buffer1.slice(0,2);
+        start = 2;
+    }
+    var intPart = [];
+    var decimalPart = [];
+    var curVal = Number(pair.join(''));
+    var remainder = [];
+    for (var d = 9; d>=0; d--) {
+        if (d*d<=curVal) {
+            intPart.push(d);
+            remainder[0] = curVal - d * d;
+            break;
+        }
+    }
 
+    while (start < len1) {
+        remainder = remainder.concat(big.buffers.buffer1.slice(start, start+2));
+        start+=2;
+        var leading = BigIntegerMultiply(intPart,[2]);
+        var curLen = leading.length;
+        for (var d = 9; d>=0; d--) {
+            leading[curLen] = d;
+            var tempt = BigIntegerMultiply(leading, [d]);
+            var flag = compareTwoInteger(tempt, remainder);
+            //console.log(tempt);
+            //console.log(remainder);
+            if (flag <= 0) {
+                //console.log(d);
+                intPart.push(d);
+                remainder = addBigPositiveAndNegativeInteger(remainder, tempt).abs;
+                break;
+            }
+        }
+    }
+    trimPrefixZeros(remainder);
+    trimSuffixZeros(big.buffers.buffer2);
+
+    if (remainder.length == 1 && remainder[0] == 0 && big.buffers.buffer2.length == 0) {
+        return {intPart: intPart, decimalPart:[]};
+    }
+
+    var index = 0;
+    var total = intPart.slice(0);
+    for (var j = 0; j<fixedLen; j++) {
+        if (index > big.buffers.buffer2.length -1) {
+            remainder.push(0);
+        } else {
+            remainder.push(big.buffers.buffer2[index]);
+        }
+        index++;
+        if (index > big.buffers.buffer2.length -1) {
+            remainder.push(0);
+        } else {
+            remainder.push(big.buffers.buffer2[index]);
+        }
+        index++;
+        var leading = BigIntegerMultiply(total,[2]);
+        var curLen = leading.length;
+        for (var d = 9; d>=0; d--) {
+            leading[curLen] = d;
+            var tempt = BigIntegerMultiply(leading, [d]);
+            var flag = compareTwoInteger(tempt, remainder);
+            //console.log(tempt);
+            //console.log(remainder);
+            if (flag <= 0) {
+                //console.log(d);
+                total.push(d);
+                decimalPart.push(d);
+                remainder = addBigPositiveAndNegativeInteger(remainder, tempt).abs;
+                break;
+            }
+        }
+    }
+    return {intPart:intPart, decimalPart:decimalPart};
 }
 
 function bigNumberSqrtWithExponentPart(big) {
@@ -564,14 +647,39 @@ function bigNumberCubeRootWithoutExponentPart(big) {
         pair = big.buffers.buffer1.slice(0,2);
         start = 2;
     }
+    var intPart = [];
+    var decimalPart = [];
+    var curVal = Number(pair.join(''));
+    var remainder = [];
     for (var d = 9; d>=0; d--) {
-        
+        if (d*d<=curVal) {
+            intPart.push(d);
+            remainder[0] = curVal - d * d;
+            break;
+        }
+    }
+    while (start < len1) {
+        remainder.concat(big.buffers.buffer1.slice(start, start+2));
+        start+=2;
+        var leading = BigIntegerMultiply(intPart,['2']);
+        var curLen = leading.length;
+        for (var d = 9; d>=0; d--) {
+            leading[curLen] = d;
+            var tempt = BigIntegerMultiply(leading, [d]);
+            var flag = compareTwoInteger(tempt, remainder);
+            if (flag <= 0) {
+                //console.log(d);
+                intPart.push(d);
+                remainder = addBigPositiveAndNegativeInteger(remainder, tempt).abs;
+                break;
+            }
+        }
     }
 
-
-
-
 }
+
+
+
 
 function bigNumberCubeRootWithExponentPart(big) {
 
@@ -1012,6 +1120,11 @@ BigNumber.prototype.power = function() {
 
 };
 
+function BigNumberMatrix() {
+
+
+}
+
 
 
 
@@ -1047,8 +1160,7 @@ console.log(addBigDecimalNumberWithoutExponentPart(dog3, dog5));
 
 //console.log(decimalDivisionIntegerPart("11111111111111111111111111111111111111111111111111111111111111111111111111111111111111",[9]));
 console.log(decimalDivisionDecimalPart([9,9,9,9,9,9,9,9,9,9],[1,0,0,0,0,0,0,0,0,0,0],5));
-
-
+console.log(bigNumberSqrtWithoutExponentPart(new BigNumber('2'),12));
 
 
 
