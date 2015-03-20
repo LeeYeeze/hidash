@@ -546,21 +546,41 @@ function bigNumberSqrtWithoutExponentPart(big) {
 
 }
 
-function bigNumberSqrtWithExponentPart() {
+function bigNumberSqrtWithExponentPart(big) {
 
 }
 
-function bigNumberCubeRootWithoutExponentPart() {
+function bigNumberCubeRootWithoutExponentPart(big) {
+    if (big == null)
+        throw "ERROR";
+    trimPrefixZeros(big.buffers.buffer1);
+    var len1 = big.buffers.buffer1.length;
+    var pair;
+    var start = 0;
+    if (len1%2== 1) {
+        pair = big.buffers.buffer1.slice(0,1);
+        start = 1;
+    } else {
+        pair = big.buffers.buffer1.slice(0,2);
+        start = 2;
+    }
+    for (var d = 9; d>=0; d--) {
+        
+    }
+
+
+
 
 }
 
-function bigNumberCubeRootWithExponentPart() {
+function bigNumberCubeRootWithExponentPart(big) {
 
 }
-
 
 
 function bigBinaryToInteger(num) {
+    if (num == null || num.length == 0)
+        return ['0'];
 
 }
 
