@@ -675,7 +675,6 @@ function bigNumberCubeRootWithoutExponentPart(big) {
             }
         }
     }
-
 }
 
 
@@ -700,7 +699,10 @@ function divideBigFloat() {
 
 }
 
-function bigIntegerGCD() {
+function bigIntegerGCD(num1, num2) {
+    trimPrefixZeros(num1);
+    trimPrefixZeros(num2);
+
 
 }
 
@@ -721,6 +723,64 @@ function addBigOctAndHexNumber() {
 }
 
 function addBigOctAndDecimalNumber() {
+
+}
+
+function integerNotZero(num) {
+    trimPrefixZeros(num);
+
+
+}
+
+function quickPower(big, n) {
+    var res = new BigNumber('1');
+    trimPrefixZeros(n);
+    while (!(n.length == 1 && n[0] == '0')) {
+        var temp = dividedByTwo(n);
+        if (temp.remainder[0]!=0) {
+            var tempRes = multiplyBigDecimalNumberWithExponentPart(res, big);
+            var newRes = new BigNumber();
+            newRes.buffers = {};
+            newRes.buffers.buffer1 = tempRes.integerPart;
+            newRes.buffers.buffer2 = tempRes.decimalPart;
+            newRes.buffers.buffer3 = tempRes.eAbs;
+            newRes.buffers.negative = tempRes.negFlag;
+            newRes.buffers.eNegative = tempRes.eNegative;
+            newRes.buffers.octBuffer = [];
+            newRes.buffers.hexBuffer = [];
+            res = newRes;
+            n = addBigPositiveAndNegativeBinary(n,[1]).abs;
+            trimPrefixZeros(n);
+        }
+        var mulRes = multiplyBigDecimalNumberWithExponentPart(big, big);
+        var newOne = new BigNumber();
+        newOne.buffers = {};
+        newOne.buffers.buffer1 = mulRes.integerPart;
+        newOne.buffers.buffer2 = mulRes.decimalPart;
+        newOne.buffers.buffer3 = mulRes.eAbs;
+        newOne.buffers.negative = mulRes.negFlag;
+        newOne.buffers.eNegative = mulRes.eNegative;
+        newOne.buffers.octBuffer = [];
+        newOne.buffers.hexBuffer = [];
+        big = newOne;
+        n = dividedByTwo(n).quotient;
+        trimPrefixZeros(n);
+
+    }
+
+    return res;
+}
+
+function square(big) {
+    return quickPower(big,[2]);
+}
+
+function bigLogarithmWithoutExponentTenBase(big) {
+
+
+}
+
+function bigLogarithm(big1, big2) {
 
 }
 
@@ -1045,8 +1105,9 @@ function isWhitespace(ch) {
 }
 
 function BigNumber(s) {
-    this.numString = s.trim();
+
     if (typeof  s == "string") {
+        this.numString = s.trim();
         this.buffers = parseStringNumber(s);
     }
 
@@ -1126,6 +1187,12 @@ function BigNumberMatrix() {
 }
 
 
+function BigFraction() {
+
+}
+
+
+
 
 
 BigNumber.prototype.getAbs = function() {
@@ -1140,7 +1207,7 @@ var dog = new BigNumber("1.1");
 //console.log(addBigPositiveInteger("11","999"));
 //console.log(addBigNumberDecimalFractionWithCarry([1],[]));
 //var dog1 = new BigNumber("-22.22");
-var dog2 = new BigNumber("-1.1");
+var dog2 = new BigNumber("-1.3e-2");
 //console.log(dog2);
 var dog3 = new BigNumber("1.1");
 var dog4 = new BigNumber("1.1");
@@ -1149,7 +1216,7 @@ console.log(addBigDecimalNumberWithoutExponentPart(dog3, dog5));
 //console.log(trimSuffixZeros([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]));
 //console.log(addBigPositiveAndNegativeInteger([1,2],[1,4],-1));
 //console.log(addBigPositiveAndNegativeInteger([2,1], [1], -1));
-//console.log(multiplyBigDecimalNumberWithExponentPart(dog2,dog));
+console.log(multiplyBigDecimalNumberWithExponentPart(dog2,dog));
 //console.log(addBigIntegerWithSign([1],[2],false,true,0));
 //console.log(addBigIntegerWithSignWithoutCarryFromDecimalPart([1],[2],false,true));
 //console.log(addBigPositiveInteger());
@@ -1160,7 +1227,10 @@ console.log(addBigDecimalNumberWithoutExponentPart(dog3, dog5));
 
 //console.log(decimalDivisionIntegerPart("11111111111111111111111111111111111111111111111111111111111111111111111111111111111111",[9]));
 console.log(decimalDivisionDecimalPart([9,9,9,9,9,9,9,9,9,9],[1,0,0,0,0,0,0,0,0,0,0],5));
-console.log(bigNumberSqrtWithoutExponentPart(new BigNumber('2'),12));
+console.log(bigNumberSqrtWithoutExponentPart(new BigNumber('10000'),12));
+console.log(quickPower(dog2,[1,1]));
+console.log(dividedByTwo([9,1,2]));
+
 
 
 
