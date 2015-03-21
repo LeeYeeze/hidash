@@ -372,6 +372,35 @@ function compareTwoAbsBigNumbers(num1, num2) {
 
 }
 
+function isZero(big) {
+
+
+}
+
+function compareTwoBigNumbers(num1, num2) {
+
+    if (num1.buffers.negative && !num2.buffers.negative) {
+
+    }
+
+    if (!num1.buffers.negative && num2.buffers.negative) {
+
+    }
+
+    if (!num1.buffers.negative && !num2.buffers.negative) {
+
+    }
+
+    if (num1.buffers.negative && num2.buffers.negative) {
+
+    }
+
+}
+
+function compareTwoBigNumbersWithoutExponentPart(num1, num2) {
+
+}
+
 function divideBigInteger(num1, num2) {
 
 }
@@ -396,6 +425,7 @@ function bigIntegerToBinary(num) {
 }
 
 function dividedByTwo(num) {
+    //num is an array represented non-negative integer
     if (num == null || num.length == 0)
         return ['0'];
     trimPrefixZeros(num);
@@ -733,6 +763,7 @@ function integerNotZero(num) {
 }
 
 function quickPower(big, n) {
+    // n is an array represented non-negative integer
     var res = new BigNumber('1');
     trimPrefixZeros(n);
     while (!(n.length == 1 && n[0] == '0')) {
@@ -776,9 +807,25 @@ function square(big) {
 }
 
 function bigLogarithmWithoutExponentTenBase(big) {
-
-
+    var n = 0;
+    while (big.buffers.buffer1.length == 1 && big.buffers.buffer1[0] == 0) {
+        var tempRes = multiplyBigDecimalNumberWithExponentPart(big, new BigNumber('10'));
+        trimPrefixZeros(tempRes.integerPart);
+        trimSuffixZeros(tempRes.decimalPart);
+        var newRes = new BigNumber();
+        newRes.buffers = {};
+        newRes.buffers.buffer1 = tempRes.integerPart;
+        newRes.buffers.buffer2 = tempRes.decimalPart;
+        newRes.buffers.buffer3 = tempRes.eAbs;
+        newRes.buffers.negative = tempRes.negFlag;
+        newRes.buffers.eNegative = tempRes.eNegative;
+        newRes.buffers.octBuffer = [];
+        newRes.buffers.hexBuffer = [];
+        big = newRes;
+    }
+    
 }
+
 
 function bigLogarithm(big1, big2) {
 
@@ -1199,7 +1246,7 @@ BigNumber.prototype.getAbs = function() {
 
 };
 
-var dog = new BigNumber("1.1");
+var dog = new BigNumber("-0");
 //console.log(dog);
 //console.log(stringIntegerMultiply(['1','2','3'],"000001"));
 //console.log(parseStringNumber(".5e-335"));
@@ -1207,11 +1254,11 @@ var dog = new BigNumber("1.1");
 //console.log(addBigPositiveInteger("11","999"));
 //console.log(addBigNumberDecimalFractionWithCarry([1],[]));
 //var dog1 = new BigNumber("-22.22");
-var dog2 = new BigNumber("-1.3e-2");
+var dog2 = new BigNumber("0");
 //console.log(dog2);
-var dog3 = new BigNumber("1.1");
+var dog3 = new BigNumber("-0");
 var dog4 = new BigNumber("1.1");
-var dog5 = new BigNumber("-2.3");
+var dog5 = new BigNumber("-0.0");
 console.log(addBigDecimalNumberWithoutExponentPart(dog3, dog5));
 //console.log(trimSuffixZeros([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]));
 //console.log(addBigPositiveAndNegativeInteger([1,2],[1,4],-1));
@@ -1230,6 +1277,7 @@ console.log(decimalDivisionDecimalPart([9,9,9,9,9,9,9,9,9,9],[1,0,0,0,0,0,0,0,0,
 console.log(bigNumberSqrtWithoutExponentPart(new BigNumber('10000'),12));
 console.log(quickPower(dog2,[1,1]));
 console.log(dividedByTwo([9,1,2]));
+console.log(addBigPositiveAndNegativeBinary([1],[1]));
 
 
 
