@@ -363,9 +363,74 @@ function multiplyBigDecimalNumberWithoutExponentPart(big1, big2) {
 
 }
 
+function addBigIntegerWithSignComplete(num1, num2, negFlag1, negFlag2, carry, isDecimalEqual) {
+    var tempt;
+    carry = carry || 0;
+    isDecimalEqual = isDecimalEqual || true;
+    if (negFlag1!= negFlag2 && isDecimalEqual)
+        tempt = addBigIntegerWithSign(num1, num2, negFlag1, negFlag2);
+    else
+        tempt = addBigIntegerWithSign(num1, num2, negFlag1, negFlag2, carry);
+    if (tempt.negFlag && negFlag1!=negFlag2) {
+        var startCarry = isDecimalEqual?0:carry==0?-1:0;
+        tempt = addBigIntegerWithSign(num1, num2, !negFlag1, !negFlag2, startCarry);
+        tempt.negFlag = true;
+    }
+    return {integerPart: tempt.abs, negative: tempt.negFlag}
+}
+
+
 function addBigDecimalNumberWithExponentPart(big1, big2) {
+    var modify;
+    var eComputation = addBigIntegerWithSignWithoutCarryFromDecimalPart(big1.buffers.buffer3, big2.buffers.buffer3, big1.buffers.eNegative, !big2.buffers.eNegative);
+    if (eComputation.negFlag) {
+        big2.buffers.buffer3 = big1.buffers.buffer3.slice(0);
+        modify = big2;
+    } else {
+        big1.buffers.buffer3 = big2.buffers.buffer3.slice(0);
+        modify = big1;
+    }
+    var stringNumber = eComputation.abs.join('');
+    if (stringNumber == '') {
+        stringNumber = '0';
+    }
+    var countNumber = Number(stringNumber);
+    var multiArray = [1];
+    if (countNumber>Number.MAX_SAFE_INTEGER) {
+        while (!(eComputation.abs.length == 1 && eComputation.abs[0] == 0)) {
+            eComputation.abs = addBigPositiveAndNegativeInteger(eComputation.abs,[1]);
+            multiArray.push(0);
+        }
+    } else {
+        for (var i = 1; i <= countNumber; i++ ) {
+            multiArray[i] = 0;
+        }
+    }
+    multiArray
 
 
+    //multiplyBigDecimalNumberWithExponentPart(modify,)
+
+
+
+
+
+
+
+
+
+
+
+
+    var decimalFractionResult= addBigNumberDecimalFractionWithSign(big1.buffers.buffer2, big2.buffers.buffer2, big1.buffers.negative, big2.buffers.negative);
+    var integerPart = addBigIntegerWithSign(big1.buffers.buffer1, big2.buffers.buffer1, big1.buffers.negative, big2.buffers.negative, decimalFractionResult.carry);
+    if (integerPart.negFlag && big1.buffers.negative != big2.buffers.negative) {
+        console.log("reverse");
+        decimalFractionResult= addBigNumberDecimalFractionWithSign(big1.buffers.buffer2, big2.buffers.buffer2, !big1.buffers.negative, !big2.buffers.negative);
+        integerPart = addBigIntegerWithSign(big1.buffers.buffer1, big2.buffers.buffer1, !big1.buffers.negative, !big2.buffers.negative, decimalFractionResult.carry);
+        integerPart.negFlag = true;
+    }
+    return {integerPart: integerPart.abs, decimalPart: decimalFractionResult.res, negative:integerPart.negFlag};
 }
 
 function compareTwoAbsBigNumbers(num1, num2) {
@@ -822,8 +887,11 @@ function bigLogarithmWithoutExponentTenBase(big) {
         newRes.buffers.octBuffer = [];
         newRes.buffers.hexBuffer = [];
         big = newRes;
+        n++;
     }
-    
+
+
+
 }
 
 
@@ -1228,6 +1296,10 @@ BigNumber.prototype.power = function() {
 
 };
 
+BigNumber.prototype.log = function() {
+
+}
+
 function BigNumberMatrix() {
 
 
@@ -1274,10 +1346,44 @@ console.log(multiplyBigDecimalNumberWithExponentPart(dog2,dog));
 
 //console.log(decimalDivisionIntegerPart("11111111111111111111111111111111111111111111111111111111111111111111111111111111111111",[9]));
 console.log(decimalDivisionDecimalPart([9,9,9,9,9,9,9,9,9,9],[1,0,0,0,0,0,0,0,0,0,0],5));
-console.log(bigNumberSqrtWithoutExponentPart(new BigNumber('10000'),12));
+console.log(bigNumberSqrtWithoutExponentPart(new BigNumber('10001'),12));
 console.log(quickPower(dog2,[1,1]));
 console.log(dividedByTwo([9,1,2]));
 console.log(addBigPositiveAndNegativeBinary([1],[1]));
+
+function simpleLog(y) {
+    var n = 0;
+    var k = 1;
+    var x = y;
+
+    while (x<1) {
+        x *= 10;
+        n--;
+    }
+
+    while (x>=10) {
+        x/=10;
+        n++;
+    }
+
+    for (var i = 0; i<31; i++) {
+        k*=2;
+        if (x*x>=10) {
+            x = x*x/10;
+            n+= 1.0/k;
+        } else
+            x=x*x;
+
+    }
+    console.log(n);
+    return n;
+
+}
+
+simpleLog(99);
+
+console.log(addBigIntegerWithSignComplete([1],[2],false,true));
+console.log(addBigIntegerWithSignWithoutCarryFromDecimalPart([],[],false,true));
 
 
 
