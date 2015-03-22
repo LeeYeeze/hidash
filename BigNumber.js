@@ -395,10 +395,11 @@ function addBigDecimalNumberWithExponentPart(big1, big2) {
         stringNumber = '0';
     }
     var countNumber = Number(stringNumber);
+    console.log(countNumber);
     var multiArray = [1];
     if (countNumber>Number.MAX_SAFE_INTEGER) {
         while (!(eComputation.abs.length == 1 && eComputation.abs[0] == 0)) {
-            eComputation.abs = addBigPositiveAndNegativeInteger(eComputation.abs,[1]);
+            eComputation.abs = addBigPositiveAndNegativeInteger(eComputation.abs,[1]).abs;
             multiArray.push(0);
         }
     } else {
@@ -406,31 +407,24 @@ function addBigDecimalNumberWithExponentPart(big1, big2) {
             multiArray[i] = 0;
         }
     }
-    multiArray
 
+    var raise = new BigNumber(multiArray.join(''));
+    var change = multiplyBigDecimalNumberWithExponentPart(modify,raise);
+    modify.buffers.buffer1 = change.integerPart;
+    modify.buffers.buffer2 = change.decimalPart;
+    var change2 = addBigDecimalNumberWithoutExponentPart(big1, big2);
+    var res = new BigNumber();
+    res.buffers = {};
+    res.buffers.buffer1 = change2.integerPart;
+    res.buffers.buffer2 = change2.decimalPart;
+    res.buffers.buffer3 = big1.buffers.buffer3;
+    res.buffers.negative = change2.negative;
+    res.buffers.eNegative = big1.buffers.eNegative;
+    res.buffers.octBuffer = [];
+    res.buffers.hexBuffer = [];
 
-    //multiplyBigDecimalNumberWithExponentPart(modify,)
+    return res;
 
-
-
-
-
-
-
-
-
-
-
-
-    var decimalFractionResult= addBigNumberDecimalFractionWithSign(big1.buffers.buffer2, big2.buffers.buffer2, big1.buffers.negative, big2.buffers.negative);
-    var integerPart = addBigIntegerWithSign(big1.buffers.buffer1, big2.buffers.buffer1, big1.buffers.negative, big2.buffers.negative, decimalFractionResult.carry);
-    if (integerPart.negFlag && big1.buffers.negative != big2.buffers.negative) {
-        console.log("reverse");
-        decimalFractionResult= addBigNumberDecimalFractionWithSign(big1.buffers.buffer2, big2.buffers.buffer2, !big1.buffers.negative, !big2.buffers.negative);
-        integerPart = addBigIntegerWithSign(big1.buffers.buffer1, big2.buffers.buffer1, !big1.buffers.negative, !big2.buffers.negative, decimalFractionResult.carry);
-        integerPart.negFlag = true;
-    }
-    return {integerPart: integerPart.abs, decimalPart: decimalFractionResult.res, negative:integerPart.negFlag};
 }
 
 function compareTwoAbsBigNumbers(num1, num2) {
@@ -1384,6 +1378,12 @@ simpleLog(99);
 
 console.log(addBigIntegerWithSignComplete([1],[2],false,true));
 console.log(addBigIntegerWithSignWithoutCarryFromDecimalPart([],[],false,true));
+
+var eDog1 = new BigNumber("0e199");
+var eDog2 = new BigNumber("1e198");
+
+console.log(addBigDecimalNumberWithExponentPart(eDog1, eDog2));
+console.log(eDog1);
 
 
 
