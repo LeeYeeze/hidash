@@ -1175,6 +1175,34 @@ function SuffixArray() {
 
 }
 
+function longestCommonSubSequence() {
+
+}
+
+function longestCommonSubString(A,B) {
+    var res = [[0]];
+    var max = 0;
+    var end = -1;
+
+    for (var i = 1; i <= A.length; i++) {
+        res.push([0]);
+        for (var j = 1; j <= B.length; j++) {
+            if (A[i-1] == B[j-1]) {
+                res[i][j] = res[i-1][j-1]+1
+            } else {
+                res[i][j] = 0;
+            }
+            if (res[i][j]>max) {
+                max = res[i][j];
+                end = i;
+            }
+
+        }
+    }
+    return {max:max, end:end};
+
+}
+
 var minq = new MinHeap();
 
 minq.insert(1);
@@ -1189,6 +1217,7 @@ console.log(spliceSlice("abc",0,1,"g"));
 
 console.log(ladderLength("hit", "cog", {"hot":true, "dot":true, "dog":true, "lot":true, "log":true}));
 console.log(maxSubarray([-1,-2,-3,-4]));
+
 
 
 

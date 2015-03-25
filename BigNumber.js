@@ -865,8 +865,10 @@ function square(big) {
     return quickPower(big,[2]);
 }
 
-function bigLogarithmWithoutExponentTenBase(big) {
+function bigLogarithmWithoutExponentTenBase(big,base) {
     var n = 0;
+    var N = new BigNumber('0');
+
     while (big.buffers.buffer1.length == 1 && big.buffers.buffer1[0] == 0) {
         var tempRes = multiplyBigDecimalNumberWithExponentPart(big, new BigNumber('10'));
         trimPrefixZeros(tempRes.integerPart);
@@ -882,6 +884,12 @@ function bigLogarithmWithoutExponentTenBase(big) {
         newRes.buffers.hexBuffer = [];
         big = newRes;
         n++;
+        N.buffers.buffer1 = addBigPositiveInteger(N.buffers.buffer1,[1]);
+        trimPrefixZeros(N.buffers.buffer1);
+    }
+
+    while (compareTwoInteger(N.buffers.buffer1)) {
+
     }
 
 
@@ -1292,7 +1300,7 @@ BigNumber.prototype.power = function() {
 
 BigNumber.prototype.log = function() {
 
-}
+};
 
 function BigNumberMatrix() {
 
@@ -1303,9 +1311,6 @@ function BigNumberMatrix() {
 function BigFraction() {
 
 }
-
-
-
 
 
 BigNumber.prototype.getAbs = function() {
@@ -1320,8 +1325,8 @@ var dog = new BigNumber("-0");
 //console.log(addBigPositiveInteger("11","999"));
 //console.log(addBigNumberDecimalFractionWithCarry([1],[]));
 //var dog1 = new BigNumber("-22.22");
-var dog2 = new BigNumber("0");
-//console.log(dog2);
+var dog2 = new BigNumber(".01");
+console.log(dog2);
 var dog3 = new BigNumber("-0");
 var dog4 = new BigNumber("1.1");
 var dog5 = new BigNumber("-0.0");
@@ -1345,6 +1350,7 @@ console.log(quickPower(dog2,[1,1]));
 console.log(dividedByTwo([9,1,2]));
 console.log(addBigPositiveAndNegativeBinary([1],[1]));
 
+
 function simpleLog(y) {
     var n = 0;
     var k = 1;
@@ -1360,7 +1366,7 @@ function simpleLog(y) {
         n++;
     }
 
-    for (var i = 0; i<31; i++) {
+    for (var i = 0; i<32; i++) {
         k*=2;
         if (x*x>=10) {
             x = x*x/10;
@@ -1374,19 +1380,57 @@ function simpleLog(y) {
 
 }
 
+function BigNumberLog(y, base) {
+    var n = 0;
+    var k = 1;
+    var x = y;
+
+    while (x < 1) {
+        x *= base;
+        n--;
+    }
+
+    while (x >= base) {
+        x/= base;
+        n++;
+
+    }
+    if (x==1) {
+        console.log(n);
+        return n;
+    }
+
+    for (var i = 0; i < 32; i++) {
+        k*=2;
+        if (x*x>=base) {
+            x = x*x/base;
+            n+= 1.0/k;
+        }
+        else
+            x = x*x;
+    }
+    console.log(n);
+    return n;
+
+}
+
 simpleLog(99);
 
 console.log(addBigIntegerWithSignComplete([1],[2],false,true));
-console.log(addBigIntegerWithSignWithoutCarryFromDecimalPart([],[],false,true));
+console.log(addBigIntegerWithSignWithoutCarryFromDecimalPart([9],[],false,true));
 
-var eDog1 = new BigNumber("0e199");
-var eDog2 = new BigNumber("1e198");
+var eDog1 = new BigNumber("1e199");
+var eDog2 = new BigNumber("-1.1e197");
 
 console.log(addBigDecimalNumberWithExponentPart(eDog1, eDog2));
 console.log(eDog1);
+console.log(BigNumberLog(9,2));
 
 
+function multiplyMatrix() {
 
+
+}
 
 
 
