@@ -175,11 +175,62 @@ function bucketSort() {
 
 }
 
-function findKthFromTwoSortedArray1(A, B, k) {
+function findKthFromTwoSortedArrayWithDupCountHelper(A, left1, right1, B, left2, right2) {
+    var m = right1 - left1 + 1;
+    var n = right2 - left2 + 1;
+}
+
+function findKthFromTwoSortedArrayWithDupCount(A, B, left1, right1, left2, right2, k) {
+    var m = right1 - left1 + 1;
+    var n = right2 - left2 + 1;
+    if (m>n) {
+        return findKthFromTwoSortedArrayWithDupCount(B,A,left2,right2,left1,right1,k);
+    }
+    if (m == 0) {
+        return B[left2+k-1];
+    }
+    if (k == 1) {
+        return Math.min(A[left1], B[left2]);
+    }
+    var posA = Math.min(m, k/2);
+    var posB = k - posA;
+    if (A[left1+posA-1] == B[left2+posB-1]) {
+        return A[left1+posA-1];
+    } else if (A[left1+posA-1]<B[left2+posB-1]) {
+        return findKthFromTwoSortedArrayWithoutDupCount(A,B,left1+posA,right1,left2,left2+posB-1,k-posA);
+    } else {
+        return findKthFromTwoSortedArrayWithoutDupCount(A,B,left1,left1+posA-1,left2+posB,right2,k-posB);
+    }
+}
+
+function binarySearch(arr, left, right, target) {
+    var l = left;
+    var r = right;
+    while (l<=r) {
+        var mid = Math.floor((l+r)/2);
+        if (arr[mid]==target) {
+            return mid;
+        } else if (arr[mid]>target) {
+            r = mid - 1;
+        } else {
+            l = mid + 1;
+        }
+    }
+    return r;
+}
+
+function findKthFromTwoSortedArrayWithDupCountNonRecurse(A, B, left1, right1, left2, right2, k) {
+    var guessIndexA = Math.min(right1, left1+k-1);
+    var len = guessIndexA - left1 + 1;
+
+
 
 }
 
-function findKthFromTwoSortedArray2(A, B, k) {
+var a = [];
+var b = [];
+
+function findKthFromTwoSortedArrayWithoutDupCount(A, B, k) {
 
 }
 
@@ -191,6 +242,29 @@ function medianOfMedian() {
 
 
 }
+
+function findMajority(arr) {
+    if (arr == null || arr.length == 0)
+        return null;
+    var count = 1;
+    var res = arr[0];
+    for (var i = 1; i < arr.length; i++) {
+        if (arr[i] == res) {
+            count++;
+        } else {
+            count--;
+            if (count == 0) {
+                res = arr[i];
+                count = 1;
+            }
+        }
+    }
+    return res;
+}
+
+
+
+
 
 
 
