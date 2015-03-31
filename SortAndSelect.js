@@ -152,7 +152,7 @@ function merge2SortedArray(A, B) {
     return A;
 }
 
-console.log(merge2SortedArray([2,4,6],[1,3,5]));
+//console.log(merge2SortedArray([2,4,6],[1,3,5]));
 
 function mergeKSortedArray(arrOfArray) {
 
@@ -220,8 +220,8 @@ function binarySearch(arr, left, right, target) {
 }
 
 function findKthFromTwoSortedArrayWithDupCountNonRecurse(A, B, left1, right1, left2, right2, k) {
-    var guessIndexA = Math.min(right1, left1+k-1);
-    var len = guessIndexA - left1 + 1;
+    var m = right1 - left1 + 1;
+    var n = right2 - left2 + 1;
 
 
 
@@ -260,6 +260,36 @@ function findMajority(arr) {
         }
     }
     return res;
+}
+
+function mergeSort(arr) {
+    if  (!Array.isArray(arr) || arr.length < 2) {
+        return;
+    }
+    mergeSortHelper(arr, 0, arr.length-1,[]);
+
+}
+
+function mergeSortHelper(arr, left, right, helper) {
+    if (left>=right) {
+        return;
+    }
+    var mid = Math.floor((left+right)/2);
+    mergeSortHelper(arr,left,mid,helper);
+    mergeSortHelper(arr,mid+1,right,helper);
+    for (var i = left ; i <=right; i++) {
+        helper[i] = arr[i];
+    }
+    var index = left;
+    var walker1 = left;
+    var walker2 = mid+1;
+    while (index<=right) {
+        if (walker2 > right || (walker1 < mid + 1 && helper[walker1] <= helper[walker2])) {
+            arr[index++] = helper[walker1++];
+        } else {
+            arr[index++] = helper[walker2++];
+        }
+    }
 }
 
 

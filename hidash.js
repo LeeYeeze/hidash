@@ -1151,7 +1151,35 @@ function KMP() {
 
 }
 
-function mergeSort() {
+function mergeSort(arr) {
+    if  (!Array.isArray(arr) || arr.length < 2) {
+        return;
+    }
+    mergeSortHelper(arr, 0, arr.length-1,[]);
+
+}
+
+function mergeSortHelper(arr, left, right, helper) {
+    if (left>=right) {
+        return;
+    }
+    var mid = Math.floor((left+right)/2);
+    mergeSortHelper(arr,left,mid,helper);
+    mergeSortHelper(arr,mid+1,right,helper);
+    for (var i = left ; i <=right; i++) {
+        helper[i] = arr[i];
+    }
+    var index = left;
+    var walker1 = left;
+    var walker2 = mid+1;
+    while (index<=right) {
+        if (walker2>right || (walker1<mid+1 && helper[walker1]<=helper[walker2])) {
+            arr[index++] = helper[walker1++];
+        } else {
+            arr[index++] = helper[walker2++];
+        }
+    }
+
 
 }
 
