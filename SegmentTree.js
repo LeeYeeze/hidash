@@ -125,6 +125,15 @@
         this.updateValueUtil(0, this.N, index, diff, 1)
 
     };
+
+    SegmentTree.prototype.rangeMax = function() {
+
+    };
+
+    SegmentTree.prototype.rangeMin = function() {
+
+    };
+
     //global.SegmentTree = SegmentTree;
     if ( typeof module != 'undefined' && module.exports ) {
         module.exports = SegmentTree;

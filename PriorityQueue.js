@@ -1,5 +1,5 @@
 /**
- * Created by yizeli on 3/7/15.
+ * Created by yizeli on 3/31/15.
  */
 function MinHeap() {
     this.heap = [];
@@ -35,6 +35,7 @@ MinHeap.prototype.swim = function(position) {
 MinHeap.prototype.removeMin = function() {
     var rootVal = this.heap[1];
     this.heap[1] = this.heap[this.size--];
+    this.heap[this.size+1] = null;
     this.sink(1);
     return rootVal;
 };
@@ -45,3 +46,9 @@ MinHeap.prototype.insert = function(x) {
 };
 
 
+
+
+
+function PriorityQueue() {
+
+}

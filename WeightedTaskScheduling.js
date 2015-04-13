@@ -19,7 +19,7 @@ function fillArray(arr, size, val) {
         arr[i] = val;
     }
 }
-
+/*
 function binarySearch (array, target, start, end) {
     var l = start || 0;
     var r = end || array.length - 1;
@@ -28,6 +28,21 @@ function binarySearch (array, target, start, end) {
         if (array[mid]==target) {
             return mid;
         } else if (array[mid]>target) {
+            r = mid - 1;
+        } else {
+            l = mid + 1;
+        }
+    }
+    return r;
+}
+*/
+
+function binarySearch (array, target, start, end) {
+    var l = start || 0;
+    var r = end || array.length - 1;
+    while (l<=r) {
+        var mid = Math.floor((l+r)/2);
+        if (array[mid]>target) {
             r = mid - 1;
         } else {
             l = mid + 1;
@@ -172,7 +187,45 @@ function treePruning(tree, N, K, sum, weights) {
             res[i][j] = Math.min(res[i][j],j==N-1?0:res[i][j+1]);
         }
     }
+    console.log(res[K]);
     return sum-res[K][0];
+
+}
+
+function treePruning2(tree, N, K, sum, weights) {
+    var A = [];
+    var W = [];
+    var S = [];
+    //var visited = {};
+    fillArray(A,N,0);
+    fillArray(W,N,0);
+    fillArray(S,N,0);
+    dfsTraversal(1, A, W, S, 0, weights, tree, [0]);
+    var res = Array.matrix(1,N,0)[0];
+    var back = Array.matrix(1,N,0)[0];
+    //fillArray(res[0],N,0);
+    for (var i = 1; i <= K; i++) {
+        //res[i] =[];
+        //fillArray(res[i],N,0);
+        for (var j = N -1; j>=0; j--) {
+            if (W[j]<0) {
+                if (j+S[j]>=N) {
+                    res[j] = W[j];
+                } else {
+                    res[j] = W[j]+back[j+S[j]];
+                }
+            } else {
+                res[j] = j==N-1?0:res[j+1];
+            }
+            res[j] = Math.min(res[j],j==N-1?0:res[j+1]);
+        }
+        var old = back;
+        back = res;
+
+        res = old;
+    }
+    console.log(back);
+    return sum-back[0];
 
 }
 
@@ -201,6 +254,8 @@ fs.readFile('input09.txt',"utf8",function(err, data){
     processData(data);
 });
 //processData(input);
+
+
 
 
 

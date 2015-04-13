@@ -32,11 +32,11 @@ SuffixTrie.prototype.search = function(s) {
 
 SuffixTrie.prototype.searchSuffix = function(s) {
 
-}
+};
 
 SuffixTrie.prototype.longestRepeat = function() {
 
-}
+};
 
 
 
@@ -64,7 +64,7 @@ SuffixTrie.prototype.insert = function(ch) {
 
 
 var st = new SuffixTrie("");
-var st1 = new SuffixTrie("abcabxabcd")
+var st1 = new SuffixTrie("abcabxabcd");
 
 console.log(st);
 console.log(st.root.children["a"]);

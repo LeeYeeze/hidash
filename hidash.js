@@ -1180,7 +1180,6 @@ function mergeSortHelper(arr, left, right, helper) {
         }
     }
 
-
 }
 
 function unionFind() {
