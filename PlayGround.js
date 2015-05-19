@@ -594,19 +594,93 @@ function findInMatrix(matrix, target) {
 
 }
 
+function isAlmostSorted(arr) {
+    if (!Array.isArray(arr) || arr.length == 0) {
+        return true;
+    }
+
+
+}
+
+function moveSpaceToHeadRemainOrder(arr) {
+    if (arr == null || arr.length == 0) {
+        return arr;
+    }
+    var idx1 = arr.length - 1;
+    var idx2 = arr.length - 2;
+    while (true) {
+        while (idx1>=0 && arr[idx1]!=' ') {
+            idx1--;
+        }
+        if (idx1<0) {
+            return arr;
+        }
+        //idx2 = idx1 -1;
+        idx2 = Math.min(idx1-1, idx2);
+        while (idx2>=0 && arr[idx2] == ' ') {
+            idx2--;
+        }
+        if (idx2<0) {
+            return arr;
+        } else {
+            arr[idx1] = arr[idx2];
+            arr[idx2] = ' ';
+        }
+        idx1--;
+        idx2--;
+
+    }
+    return arr;
+
+}
+
+function lastNonZeroDigit(n) {
+
+
+}
+
 
 
 var a = [9,8,7,1,2,3,4,5];
 mergeSort(a);
 console.log(a);
 
-console.log(commonElementsBetweenTwoSortedArray([1,2,3,4,5,6,7,8,9],[3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3]));
-console.log(BalancedParenthesis(['(','(',')']));
-console.log(moveZerosToTail([0,0,0,0,0,0,0,0,0,0,1]));
-console.log(romanToInteger("IV"));
-console.log(turnAroundSame(6));
-console.log(countTurnAroundSame(2));
-console.log(extraParenthesis("1+(2+3)"));
-generateReversePolishNotation([1,2,3,4]);
+//console.log(commonElementsBetweenTwoSortedArray([1,2,3,4,5,6,7,8,9],[3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3]));
+//console.log(BalancedParenthesis(['(','(',')']));
+//console.log(moveZerosToTail([0,0,0,0,0,0,0,0,0,0,1]));
+//console.log(romanToInteger("IV"));
+//console.log(turnAroundSame(6));
+//console.log(countTurnAroundSame(2));
+//console.log(extraParenthesis("1+(2+3)"));
+//generateReversePolishNotation([1,2,3,4]);
+console.log(moveSpaceToHeadRemainOrder([' ',' ',' ','a','b','c',' ',' ']));
+
+function multiplyStrings(s1, s2) {
+    var len1 = s1.length;
+    var len2 = s2.length;
+    var res = [];
+    var tempRes = 0;
+    for (var i = len1+len2-1; i >= 0; i--) {
+
+        for (var j = Math.min(i-1, len1-1); j >= 0 && j+s2.length >= i; j--) {
+            tempRes += Number(s1.charAt(j)) * Number(s2.charAt(i-j-1));
+        }
+        res[i] = tempRes % 10;
+        tempRes = Math.floor(tempRes/10);
+    }
+
+    if (res[0] == 0) {
+        res.shift();
+    }
+
+    return res.join('');
+
+}
+
+function merge() {
+    
+}
+
+console.log(multiplyStrings("125","25"));
 
 

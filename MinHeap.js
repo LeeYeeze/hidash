@@ -44,4 +44,15 @@ MinHeap.prototype.insert = function(x) {
     this.swim(this.size);
 };
 
+MinHeap.prototype.heapifyArray = function (arr) {
+    this.size = arr.length;
+    for (var i = 0 ; i < this.size; i++) {
+        this.heap[i+1] = arr[i];
+    }
+    for (var i = (this.size)>>2;i > 0; i--) {
+        this.sink(i);
+    }
+
+};
+
 
