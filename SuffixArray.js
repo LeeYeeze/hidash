@@ -248,4 +248,211 @@ SuffixArray.prototype.index = function(i) {
 
 //console.log(String.fromCharCode(0))
 
-console.log(constructSuffixArray("GACCCACCACC",255))
+function radixRank(suffixArray,size) {
+    var counting = [];
+    var res = [];
+    var res2 = [];
+    for (var i =0; i <= size; i++) {
+        counting[i] = 0;
+    }
+    for (var i = 0; i < suffixArray.length; i++) {
+        counting[suffixArray[i].rank2+1]++;
+    }
+    for (var i = 1; i <= size; i++) {
+        counting[i]+= counting[i-1];
+    }
+    for (var i = suffixArray.length - 1; i >= 0; i--) {
+        res[--counting[suffixArray[i].rank2+1]] = suffixArray[i];
+    }
+    for (var i =0; i <= size; i++) {
+        counting[i] = 0;
+    }
+    for (var i = 0; i < suffixArray.length; i++) {
+        counting[res[i].rank1+1]++;
+    }
+    for (var i = 1; i <= size; i++) {
+        counting[i]+= counting[i-1];
+    }
+    for (var i = suffixArray.length - 1; i >= 0; i--) {
+        res2[--counting[res[i].rank1+1]] = res[i];
+    }
+    return res2;
+}
+
+function SuffixInfo(index, rank1, rank2) {
+    this.index = index;
+    this.rank1 = rank1;
+    this.rank2 = rank2;
+}
+
+function constructSuffixArray2(s) {
+    var suffixArray = [];
+    for (var i = 0; i < s.length; i++) {
+        suffixArray[i] = new SuffixInfo(i);
+    }
+    var backupArray = suffixArray.slice(0);
+    suffixArray.sort(function (a,b) {
+        return s.charCodeAt(a.index) - s.charCodeAt(b.index);
+    });
+    var count = -1;
+    var pre = null;
+    console.log(suffixArray);
+
+    for (var i = 0; i < s.length; i++) {
+        if (s.charAt(suffixArray[i].index) == pre) {
+            suffixArray[i].rank1 = count;
+        } else {
+            pre = s.charAt(suffixArray[i].index);
+            suffixArray[i].rank1 = ++count;
+        }
+    }
+
+    for (var k = 2; k < 2 * s.length; k*=2) {
+        var offset = k/2;
+        for (var j = 0; j < s.length; j++) {
+            backupArray[j].rank2 = j+offset < s.length ? backupArray[j + offset].rank1: -1;
+        }
+        suffixArray.sort(function (a,b) {
+            return a.rank1 - b.rank1 == 0 ? a.rank2 - b.rank2 : a.rank1 - b.rank1;
+        });
+        count = -1;
+        pre = null;
+        for (var i = 0; i < s.length; i++) {
+            if (s.charAt(suffixArray[i].index) == pre) {
+                suffixArray[i].rank1 = count;
+            } else {
+                pre = s.charAt(suffixArray[i].index);
+                suffixArray[i].rank1 = ++count;
+            }
+        }
+    }
+    return suffixArray;
+}
+
+function constructSuffixArray3(s) {
+    var suffixArray = [];
+    for (var i = 0; i < s.length; i++) {
+        suffixArray[i] = new SuffixInfo(i);
+    }
+    var backupArray = suffixArray.slice(0);
+    suffixArray.sort(function (a,b) {
+        return s.charCodeAt(a.index) - s.charCodeAt(b.index);
+    });
+    var count = -1;
+    var pre = null;
+    console.log(suffixArray);
+
+    for (var i = 0; i < s.length; i++) {
+        if (s.charAt(suffixArray[i].index) == pre) {
+            suffixArray[i].rank1 = count;
+        } else {
+            pre = s.charAt(suffixArray[i].index);
+            suffixArray[i].rank1 = ++count;
+        }
+    }
+
+    for (var k = 2; k < 2 * s.length; k*=2) {
+        var offset = k/2;
+        for (var j = 0; j < s.length; j++) {
+            backupArray[j].rank2 = j+offset < s.length ? backupArray[j + offset].rank1: -1;
+        }
+        /*
+        suffixArray.sort(function (a,b) {
+            return a.rank1 - b.rank1 == 0 ? a.rank2 - b.rank2 : a.rank1 - b.rank1;
+        });
+        */
+        suffixArray = radixRank(suffixArray, count+1);
+        count = -1;
+        var pre1 = null;
+        var pre2 = null;
+        for (var i = 0; i < s.length; i++) {
+            if (suffixArray[i].rank1 == pre1 && suffixArray[i].rank2 == pre2) {
+                suffixArray[i].rank1 = count;
+            } else {
+                pre1 = suffixArray[i].rank1;
+                pre2 = suffixArray[i].rank2;
+                suffixArray[i].rank1 = ++count;
+            }
+        }
+    }
+    return suffixArray;
+}
+
+
+
+function constructSuffixArray4(s) {
+    var record = [];
+    var suffixArray = [];
+    for (var i = 0; i < s.length; i++) {
+        suffixArray[i] = new SuffixInfo(i);
+    }
+    var backupArray = suffixArray.slice(0);
+    suffixArray.sort(function (a,b) {
+        return s.charCodeAt(a.index) - s.charCodeAt(b.index);
+    });
+    var count = -1;
+    var pre = null;
+    //console.log(suffixArray);
+
+    for (var i = 0; i < s.length; i++) {
+        if (s.charAt(suffixArray[i].index) == pre) {
+            suffixArray[i].rank1 = count;
+        } else {
+            pre = s.charAt(suffixArray[i].index);
+            suffixArray[i].rank1 = ++count;
+        }
+    }
+
+    var r = backupArray.map(function (obj) {
+        return obj.rank1;
+    });
+    record.push(r);
+
+    for (var k = 2; k < 2 * s.length; k*=2) {
+        var offset = k/2;
+        for (var j = 0; j < s.length; j++) {
+            backupArray[j].rank2 = j+offset < s.length ? backupArray[j + offset].rank1: -1;
+        }
+        suffixArray = radixRank(suffixArray, count+1);
+        count = -1;
+        var pre1 = null;
+        var pre2 = null;
+        for (var i = 0; i < s.length; i++) {
+            if (suffixArray[i].rank1 == pre1 && suffixArray[i].rank2 == pre2) {
+                suffixArray[i].rank1 = count;
+            } else {
+                pre1 = suffixArray[i].rank1;
+                pre2 = suffixArray[i].rank2;
+                suffixArray[i].rank1 = ++count;
+            }
+        }
+        record.push(backupArray.map(function (obj) {
+            return obj.rank1;
+        }));
+    }
+
+    return {"suffixArray":suffixArray, "record":record};
+}
+
+function lcp (x,y,record,len) {
+    var res = 0;
+    if (x === y) {
+        return len - x;
+    }
+    for (var k = record.length -1; k >= 0; k--) {
+        if (record[k][x] == record[k][y]) {
+            var offset = Math.pow(2,k);
+            x += offset;
+            y += offset;
+            res += offset;
+        }
+    }
+    return res;
+}
+
+
+
+
+console.log(constructSuffixArray("GACCCACCACC",255));
+console.log(constructSuffixArray4("GACCCACCACC"));
+

@@ -439,19 +439,11 @@ function processData(input) {
     console.log(countAlmostSortedInterval(arr));
 }
 
-function DQuery(arr) {
+function DQuery(arr, querys) {
     var bit1 = new BITTree(arr);
-    var bit2 = new BITTree(arr);
-    var map1 = {};
-    var map2 = {};
+    var map1 = [];
 
-    for (var i = 0; i < arr.length; i++) {
 
-    }
-
-    for (var i = arr.length - 1; i>0; i--) {
-
-    }
 
 
 }

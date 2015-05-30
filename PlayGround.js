@@ -307,7 +307,7 @@ function integerToRoman() {
 
 }
 
-function manacherPalindrome() {
+function manacherPalindrome(s) {
 
 }
 
