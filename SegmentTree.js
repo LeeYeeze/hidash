@@ -441,6 +441,11 @@ function solveColoringTree(tree, treeColor, queryList) {
 
 }
 
+function SegmentTreeWithHeap () {
+
+
+}
+
 var sts = new SegmentTreeSum(5);
 console.log(sts.rangeUpdate(0,5,1));
 console.log(sts.querySum(1,2));
