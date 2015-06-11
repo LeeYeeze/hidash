@@ -156,6 +156,10 @@ function LCARMQ() {
 
 }
 
+function eulerTour() {
+
+}
+
 
 var a = {left : null, right : null, val : "a"};
 var b = {left: null, right: null, val : "b"};
