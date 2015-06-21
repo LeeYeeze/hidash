@@ -36,6 +36,8 @@ function buildTable(W) {
 
 }
 
+
+
 function buildTable2(W) {
     var table = [];
     if (W.length == 0) {
@@ -57,8 +59,31 @@ function buildTable2(W) {
 
 }
 
-function buildTable3() {
-
+function buildTable3(W) {
+    var table = [];
+    if (W.length == 0) {
+        return table;
+    }
+    table[0] = -1;
+    var i = 1;
+    var ancestor = -1;
+    while (i < W.length) {
+        if (typeof table[i] === "undefined") {
+            ancestor = table[i-1];
+            table[i] = ancestor+1;
+        } else if (W.charAt(table[i]) !== W.charAt(i)){
+            if (ancestor === -1) {
+                table[i] = -1;
+                i++;
+            } else {
+                ancestor = table[ancestor];
+                table[i] = ancestor+1;
+            }
+        } else {
+            i++;
+        }
+    }
+    return table;
 }
 
 function KMPMatch(S,W) {
@@ -72,7 +97,6 @@ function KMPMatch(S,W) {
             } else {
                 i++;
             }
-
         } else {
             if (table[i] > -1) {
                 m = m+i-table[i];
@@ -122,9 +146,10 @@ function wildCardMatch(s,p) {
     return j === p.length;
 }
 
-console.log(KMPMatch("abcd","s"));
-console.log(buildTable("ababababce"));
-console.log(buildTable("ababcababcaaabb"));
-console.log(buildTable("aaaaaaaaaaaaaaa"));
-console.log(buildTable("abcababcabbacabbacabcacb"));
-console.log(wildCardMatch("","*"));
+//console.log(KMPMatch("abcd","s"));
+console.log(buildTable("aaabaaabaaab"));
+//console.log(buildTable("ababcababcaaabb"));
+//console.log(buildTable("aaaaaaaaaaaaaaa"));
+//console.log(buildTable("abcababcabbacabbacabcacb"));
+//console.log(wildCardMatch("","*"));
+console.log(buildTable3("aabbccaa"))

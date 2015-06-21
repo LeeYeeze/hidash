@@ -48,8 +48,7 @@ var sam = new SuffixAutomaton("bbaabbbaab");
 console.log(sam.root);
 
 var current  = sam.root;
-for (var i = 0; i < 5
-    ; i++) {
+for (var i = 0; i < 5; i++) {
     console.log(i);
     for (var j = 'a'.charCodeAt(0); j <= 'z'.charCodeAt(0);j++) {
         if (current.nextStates[j] !== undefined) {
@@ -59,6 +58,37 @@ for (var i = 0; i < 5
         }
     }
 }
+
+function LongestCommonSubstring(str1, str2) {
+
+    var sam = new SuffixAutomaton(str1);
+    var current = sam.root;
+    var temp = 0;
+    var res = {max:0,end:-1};
+    for (var i = 0; i < str2.length; i++) {
+        if (current === null) {
+            current = sam.root;
+            temp = 0;
+            continue;
+        }
+        if (typeof current.nextStates[str2.charCodeAt(i)] !== "undefined") {
+            temp++;
+            if (temp > res.max) {
+                res.max = temp;
+                res.end = i;
+            }
+            current = current.nextStates[str2.charCodeAt(i)];
+        } else {
+            current = current.parent;
+            temp = current === null ? 0:current.val;
+            i--;
+        }
+    }
+    return res;
+
+}
+
+console.log(LongestCommonSubstring("bbaa","camaa"));
 
 
 
