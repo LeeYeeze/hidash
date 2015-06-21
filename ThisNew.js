@@ -14,6 +14,11 @@ query.prototype = {
     map: function () {
         console.log("hahaha");
     }
+};
+
+
+function iamhere() {
+
 }
 
 
