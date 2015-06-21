@@ -14,7 +14,9 @@ query.prototype = {
     map: function () {
         console.log("hahaha");
     }
-};
+}
+
+
 query.prototype.init.prototype = query.prototype;
 
 console.log(query.prototype.init());
