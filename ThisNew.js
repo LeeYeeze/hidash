@@ -18,13 +18,6 @@ query.prototype = {
 
 
 
-function aaaaaa() {
-    
-}
-
-function iamhere() {
-
-}
 
 
 query.prototype.init.prototype = query.prototype;
