@@ -16,6 +16,10 @@ query.prototype = {
     }
 };
 
+function cornell() {
+
+}
+
 
 
 
