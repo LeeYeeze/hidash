@@ -130,11 +130,6 @@ function heapSort() {
 
 }
 
-function mergeSort(arr) {
-
-
-}
-
 function merge2SortedArray(A, B) {
     var l1 = A.length;
     var l2 = B.length;
@@ -291,6 +286,8 @@ function mergeSortHelper(arr, left, right, helper) {
         }
     }
 }
+
+
 
 
 

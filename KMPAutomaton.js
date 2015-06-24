@@ -111,6 +111,35 @@ function KMPMatch(S,W) {
 
 }
 
+function KMPMatch3(S,W) {
+    var table = buildTable3(W);
+    var m = 0;
+    var i = 0;
+    var res = [];
+    while (m+i < S.length) {
+        if (W.charAt(i) === S.charAt(m+i)) {
+            if (i === W.length - 1) {
+                res.push(m);
+                m = m + i - (table[i-1]+1);
+                i = table[i-1]+1;
+                //return m;
+            } else {
+                i++;
+            }
+        } else {
+            if (i > 0 && table[i-1] > -1) {
+                m = m + i - (table[i-1]+1);
+                i = table[i-1]+1;
+            } else {
+                i = 0 ;
+                m++;
+            }
+
+        }
+    }
+    return res;
+}
+
 
 function KMPAutomaton(P){
 
@@ -152,4 +181,6 @@ console.log(buildTable("aaabaaabaaab"));
 //console.log(buildTable("aaaaaaaaaaaaaaa"));
 //console.log(buildTable("abcababcabbacabbacabcacb"));
 //console.log(wildCardMatch("","*"));
-console.log(buildTable3("aabbccaa"))
+console.log(buildTable3("aabbccaa"));
+
+console.log(KMPMatch3("bavbaavbaav","baav"));

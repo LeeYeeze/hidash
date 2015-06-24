@@ -8,25 +8,24 @@ var query = function () {
 query.prototype = {
     constructor: query,
     init: function () {
-        console.log(this);
-        return this;
+        //console.log(this);
+        //return this;
     },
     map: function () {
         console.log("hahaha");
     }
 };
 
-function cornell() {
-
-}
-
-
 
 
 
 query.prototype.init.prototype = query.prototype;
 
-console.log(query.prototype.init());
-console.log((new query()))
-console.log((new query()) === query.prototype.init());
-console.log((new query()).map())
+//console.log(query.prototype.init());
+//console.log((new query()))
+console.log(query());
+console.log(query() === query.prototype.init());
+(new query()).map();
+var d = query();
+console.log(d.init() === query);
+console.log(query() === query());
