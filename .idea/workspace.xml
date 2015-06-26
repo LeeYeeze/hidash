@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0861322c-43cc-4ed1-bde0-ba26a7b3810e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/BPlusTree.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/DataLib.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Geometry.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Inclusion-exclusion principle.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/TreeDP.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/UnionFind.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ACAutomata.js" afterPath="$PROJECT_DIR$/ACAutomata.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/KMPAutomaton.js" afterPath="$PROJECT_DIR$/KMPAutomaton.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SortAndSelect.js" afterPath="$PROJECT_DIR$/SortAndSelect.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThisNew.js" afterPath="$PROJECT_DIR$/ThisNew.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Geometry.js" afterPath="$PROJECT_DIR$/Geometry.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="hidash.iws" />
@@ -33,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="KMPAutomaton.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="KMPAutomaton.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/KMPAutomaton.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.797136">
-              <caret line="185" column="34" selection-start-line="185" selection-start-column="34" selection-end-line="185" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="178" column="40" selection-start-line="178" selection-start-column="40" selection-end-line="178" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -65,11 +57,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ACAutomata.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ACAutomata.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ACAutomata.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.7826087">
+              <caret line="126" column="0" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
               <folding>
                 <element signature="n#!!doc;n#ACNode#0" expanded="false" />
               </folding>
@@ -81,8 +73,10 @@
         <entry file="file://$PROJECT_DIR$/Geometry.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+              <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+              <folding>
+                <element signature="n#!!doc;n#Polygon#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -224,10 +218,10 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="23" />
+    <option name="x" value="10" />
     <option name="y" value="23" />
     <option name="width" value="1280" />
-    <option name="height" value="743" />
+    <option name="height" value="735" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -252,8 +246,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -274,11 +266,13 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/KMPAutomaton.js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ACAutomata.js" />
     <property name="recentsLimit" value="5" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="225" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
@@ -345,7 +339,7 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="hidash.js" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="/usr/local/bin/node" path-to-js-file="KMPAutomaton.js" working-dir="$PROJECT_DIR$">
+    <configuration default="false" name="hidash.js" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="/usr/local/bin/node" path-to-js-file="ACAutomata.js" working-dir="$PROJECT_DIR$">
       <RunnerSettings RunnerId="Basic" />
       <RunnerSettings RunnerId="debuggableProgram" />
       <ConfigurationWrapper RunnerId="Basic" />
@@ -396,28 +390,28 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="23" y="23" width="1280" height="743" extended-state="0" />
+    <frame x="10" y="23" width="1280" height="735" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.134375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3993994" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33679524" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33633634" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329927" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329927" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32882884" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32882884" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -437,7 +431,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="10" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -642,7 +636,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="129" column="0" selection-start-line="129" selection-start-column="0" selection-end-line="129" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -665,7 +658,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="182" column="5" selection-start-line="182" selection-start-column="5" selection-end-line="182" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -690,7 +682,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -698,7 +689,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="74" column="29" selection-start-line="74" selection-start-column="29" selection-end-line="74" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -706,7 +696,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="288" column="0" selection-start-line="288" selection-start-column="0" selection-end-line="288" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -714,9 +703,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc;n#Vector#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -732,7 +718,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -740,7 +725,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -788,14 +772,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AdvancedStringLib.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/KthSmallestInBST.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -806,7 +782,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Geometry.js">
+    <entry file="file://$PROJECT_DIR$/AdvancedStringLib.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -814,21 +790,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ACAutomata.js">
+    <entry file="file://$PROJECT_DIR$/Geometry.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc;n#ACNode#0" expanded="false" />
+            <element signature="n#!!doc;n#Polygon#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/KMPAutomaton.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.797136">
-          <caret line="185" column="34" selection-start-line="185" selection-start-column="34" selection-end-line="185" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="178" column="40" selection-start-line="178" selection-start-column="40" selection-end-line="178" selection-end-column="40" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ACAutomata.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7826087">
+          <caret line="126" column="0" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc;n#ACNode#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
